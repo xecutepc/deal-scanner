@@ -22,12 +22,15 @@ PUSHOVER_TOKEN     = os.environ.get("PUSHOVER_TOKEN", "")
 MIN_DISCOUNT       = 80
 
 MIN_ORIGINAL_PRICE = {
-    "flipping":    500,
+    "flipping":    200,   # flipper — $200+ retail at 90%+ off
     "electronics": 50,
     "gaming":      30,
     "clothing":    40,
     "general":     20,
 }
+
+GLITCH_MIN_ORIGINAL = 50   # glitch — 90%+ off anything $50+
+GLITCH_MIN_DISCOUNT = 90
 
 MIN_SALE_PRICE = {
     "flipping":    10,
@@ -284,6 +287,9 @@ def build_deal(title, url, source, original, sale, discount, category=None):
     if sale and sale < MIN_SALE_PRICE.get(category, 3):
         return None
 
+    # tag as glitch if 90%+ off $50+ regardless of category
+    is_glitch = (discount >= GLITCH_MIN_DISCOUNT and original and original >= GLITCH_MIN_ORIGINAL)
+
     return {
         "title":    title.strip()[:200],
         "url":      url,
@@ -292,6 +298,7 @@ def build_deal(title, url, source, original, sale, discount, category=None):
         "original": original,
         "sale":     sale,
         "category": category,
+        "glitch":   is_glitch,
         "found_at": datetime.utcnow().isoformat(),
     }
 
@@ -592,8 +599,8 @@ def scrape_bestbuy(search_term):
 # ── Notifier ──────────────────────────────────────────────────────────────────
 
 def should_notify(deal):
-    """Only push notify for high value flipper and glitch deals."""
-    is_glitch = deal.get('discount', 0) >= 90 and deal.get('original', 0) and deal['original'] >= 100
+    """Only push notify for flipper and glitch deals."""
+    is_glitch  = deal.get('glitch', False)
     is_flipper = deal.get('category') == 'flipping'
     return is_glitch or is_flipper
     if not PUSHOVER_USER_KEY or not PUSHOVER_TOKEN:
@@ -604,8 +611,8 @@ def should_notify(deal):
     sale_str     = f"${deal['sale']:.2f}"     if deal['sale']     else "?"
     price_line   = f"{original_str} → {sale_str}" if deal['original'] and deal['sale'] else ""
 
-    is_glitch = deal['discount'] >= 90 and deal.get('original', 0) and deal['original'] >= 100
-    title_prefix = "⚡ GLITCH PRICE" if is_glitch else "🏷 Deal Alert"
+    is_glitch    = deal.get('glitch', False)
+    title_prefix = "⚡ GLITCH PRICE" if is_glitch else "💰 Flipper Deal"
 
     message = (
         f"{deal['discount']}% OFF  {price_line}\n"
