@@ -591,7 +591,11 @@ def scrape_bestbuy(search_term):
 
 # ── Notifier ──────────────────────────────────────────────────────────────────
 
-def send_pushover(deal):
+def should_notify(deal):
+    """Only push notify for high value flipper and glitch deals."""
+    is_glitch = deal.get('discount', 0) >= 90 and deal.get('original', 0) and deal['original'] >= 100
+    is_flipper = deal.get('category') == 'flipping'
+    return is_glitch or is_flipper
     if not PUSHOVER_USER_KEY or not PUSHOVER_TOKEN:
         print("  Pushover keys not set — skipping")
         return
@@ -711,7 +715,8 @@ def main():
                 seen.add(did)
                 all_new_deals.append(deal)
                 print(f"  NEW: {deal['title'][:60]} ({deal['discount']}% off)")
-                send_pushover(deal)
+                if should_notify(deal):
+                    send_pushover(deal)
 
     # ── Retailer scrapers
     retailers = [
@@ -736,7 +741,8 @@ def main():
                     if did not in seen:
                         seen.add(did)
                         all_new_deals.append(deal)
-                        send_pushover(deal)
+                        if should_notify(deal):
+                            send_pushover(deal)
             except Exception as e:
                 print(f"  Error scraping {retailer_name} for '{term}': {e}")
             polite_delay()
