@@ -102,6 +102,8 @@
     .tab.active { background: var(--accent); color: #000; border-color: var(--accent); font-weight: 600; }
     .tab:not(.active):hover { border-color: rgba(255,255,255,0.2); color: var(--text); }
     .tab.flip-tab:not(.active) { border-color: rgba(0,208,132,0.4); color: var(--accent); }
+    .tab.glitch-tab:not(.active) { border-color: rgba(255,176,32,0.4); color: var(--amber); }
+    .tab.glitch-tab.active { background: var(--amber); color: #000; border-color: var(--amber); }
 
     .stats-bar {
       display: flex; gap: 1px;
@@ -139,7 +141,8 @@
     }
 
     .deal-card:active { transform: scale(0.98); background: var(--surface2); }
-    .deal-card.flip-deal { border-color: rgba(0,208,132,0.35); }
+    .deal-card.flip-deal   { border-color: rgba(0,208,132,0.35); }
+    .deal-card.glitch-deal { border-color: rgba(255,176,32,0.4); }
 
     .flip-label {
       font-size: 10px; font-weight: 700; color: var(--accent);
@@ -328,6 +331,7 @@
   <div class="tabs-wrap" id="tabsWrap">
     <div class="tabs">
       <button class="tab active" data-cat="all">All Deals</button>
+      <button class="tab glitch-tab" data-cat="glitch">⚡ Glitch</button>
       <button class="tab flip-tab" data-cat="flipping">💰 Flipper</button>
       <button class="tab" data-cat="electronics">Electronics</button>
       <button class="tab" data-cat="gaming">Gaming</button>
@@ -496,13 +500,17 @@
   }
 
   function renderFeed() {
-    const isFlip = currentCat === 'flipping';
+    const isFlip   = currentCat === 'flipping';
+    const isGlitch = currentCat === 'glitch';
     const filtered = allDeals.filter(d => {
-      if (currentCat !== 'all' && d.category !== currentCat) return false;
+      if (currentCat === 'glitch') {
+        if (!d.glitch) return false;
+      } else {
+        if (currentCat !== 'all' && d.category !== currentCat) return false;
+      }
       if (!enabledCats[d.category]) return false;
       if ((d.discount || 0) < minDiscount) return false;
       if (currentRetailer !== 'all') {
-        // Reddit tab matches all Reddit subreddit sources
         if (currentRetailer === 'Reddit') {
           if (!d.source || !d.source.toLowerCase().includes('reddit')) return false;
         } else {
@@ -515,15 +523,19 @@
     const banner = isFlip ? `
       <div class="flip-info-banner">
         <div class="flip-info-title">💰 Flipper Deals</div>
-        <div class="flip-info-sub">$500+ retail items at 90%+ off. Buy cheap, sell under market, pocket the difference.</div>
+        <div class="flip-info-sub">$200+ retail items at 90%+ off. Buy cheap, sell under market, pocket the difference.</div>
+      </div>` : isGlitch ? `
+      <div class="flip-info-banner" style="background:rgba(255,176,32,0.08);border-color:rgba(255,176,32,0.25)">
+        <div class="flip-info-title" style="color:var(--amber)">⚡ Glitch Prices</div>
+        <div class="flip-info-sub">90%+ off items $50+. These are pricing errors — act fast, they get fixed within hours.</div>
       </div>` : '';
 
     if (!filtered.length) {
       document.getElementById('feed').innerHTML = banner + `
         <div class="empty">
-          <div class="empty-icon">${isFlip ? '💰' : '😔'}</div>
-          <div class="empty-title">${isFlip ? 'No flipper deals yet' : 'No deals here'}</div>
-          <div class="empty-sub">${isFlip ? 'These are rare — big ticket items at 90%+ off. Check back soon.' : 'Try a different category or lower the discount in Settings.'}</div>
+          <div class="empty-icon">${isGlitch ? '⚡' : isFlip ? '💰' : '😔'}</div>
+          <div class="empty-title">${isGlitch ? 'No glitch prices right now' : isFlip ? 'No flipper deals yet' : 'No deals here'}</div>
+          <div class="empty-sub">${isGlitch ? 'Glitch prices are rare and disappear fast. Check back soon.' : isFlip ? 'These are rare — big ticket items at 90%+ off. Check back soon.' : 'Try a different category or lower the discount in Settings.'}</div>
         </div>`;
       return;
     }
@@ -534,12 +546,20 @@
   }
 
   function dealCard(deal) {
-    const isFlip = deal.category === 'flipping';
-    const wasHtml = deal.original ? `<span class="price-was">$${deal.original.toFixed(2)}</span>` : '';
-    const nowHtml = deal.sale     ? `<span class="price-now">$${deal.sale.toFixed(2)}</span>`     : '';
+    const isFlip   = deal.category === 'flipping';
+    const isGlitch = deal.glitch === true;
+    const wasHtml  = deal.original ? `<span class="price-was">$${deal.original.toFixed(2)}</span>` : '';
+    const nowHtml  = deal.sale     ? `<span class="price-now">$${deal.sale.toFixed(2)}</span>`     : '';
     const catLabel = deal.category === 'flipping' ? '💰 Flipper'
       : (deal.category || 'general').charAt(0).toUpperCase() + (deal.category || 'general').slice(1);
     const catClass = 'cat-' + (deal.category || 'general');
+
+    const cardExtra = isGlitch ? ' glitch-deal' : isFlip ? ' flip-deal' : '';
+    const topLabel  = isGlitch
+      ? '<div class="flip-label" style="color:var(--amber)">⚡ Possible glitch price</div>'
+      : isFlip
+      ? '<div class="flip-label">💰 Flip opportunity</div>'
+      : '';
 
     let profitHtml = '';
     if (isFlip && deal.original && deal.sale) {
@@ -549,8 +569,8 @@
     }
 
     return `
-      <a class="deal-card${isFlip ? ' flip-deal' : ''}" href="${esc(deal.url)}" target="_blank" rel="noopener">
-        ${isFlip ? '<div class="flip-label">Flip opportunity</div>' : ''}
+      <a class="deal-card${cardExtra}" href="${esc(deal.url)}" target="_blank" rel="noopener">
+        ${topLabel}
         <div class="deal-top">
           <div class="deal-title">${esc(deal.title)}</div>
           <div class="discount-badge">${deal.discount}% OFF</div>
