@@ -40,27 +40,134 @@ MIN_SALE_PRICE = {
 SEEN_DEALS_FILE = "data/seen_deals.json"
 
 CATEGORIES = {
-    "flipping":    ["tv", "television", "sofa", "couch", "furniture", "mattress", "refrigerator", "fridge", "washer", "dryer", "dishwasher", "oven", "range", "microwave", "vacuum", "dyson", "robot vacuum", "air purifier", "dehumidifier", "generator", "power tool", "dewalt", "milwaukee", "makita", "table saw", "drill", "compressor", "lawnmower", "lawn mower", "pressure washer", "treadmill", "elliptical", "exercise bike", "desk", "office chair", "bookshelf", "dresser", "nightstand", "bed frame", "recliner", "sectional"],
-    "electronics": ["laptop", "phone", "camera", "tablet", "headphone", "monitor", "keyboard", "mouse", "speaker", "gpu", "cpu", "ssd", "hard drive", "smartwatch", "projector", "printer"],
-    "clothing":    ["clothing", "shoes", "shirt", "pants", "jacket", "boots", "sneakers", "dress", "hoodie", "coat", "apparel", "fashion"],
-    "gaming":      ["gaming", "game", "xbox", "playstation", "nintendo", "ps5", "ps4", "switch", "controller", "graphics card"],
-    "general":     []
+    "flipping": [
+        # TVs & displays
+        "tv", "television", "oled", "qled", "4k tv", "8k tv", "smart tv", "projector screen",
+        # Large appliances
+        "refrigerator", "fridge", "french door fridge", "chest freezer", "upright freezer",
+        "washer", "dryer", "washer dryer", "dishwasher", "oven", "range", "stove",
+        "microwave", "hood range", "wine cooler", "wine fridge", "ice maker",
+        # Small appliances (high value)
+        "espresso machine", "coffee maker", "keurig", "nespresso", "vitamix", "blender",
+        "stand mixer", "kitchenaid", "air fryer", "instant pot", "pressure cooker",
+        "bread maker", "juicer", "food processor", "vacuum", "dyson", "robot vacuum",
+        "roomba", "air purifier", "dehumidifier", "humidifier", "space heater",
+        # Home comfort
+        "portable ac", "window ac", "air conditioner", "heat pump", "electric fireplace",
+        "massage chair", "zero gravity chair",
+        # Power & outdoor
+        "generator", "solar panel", "power station", "portable power",
+        "pressure washer", "lawnmower", "lawn mower", "riding mower", "zero turn",
+        "snow blower", "leaf blower", "chainsaw", "pole saw", "hedge trimmer",
+        # Power tools
+        "power tool", "dewalt", "milwaukee", "makita", "ryobi", "craftsman", "bosch",
+        "table saw", "miter saw", "circular saw", "jigsaw", "reciprocating saw",
+        "drill press", "band saw", "router", "planer", "jointer", "lathe",
+        "air compressor", "nail gun", "impact wrench", "angle grinder", "welder",
+        # Fitness equipment
+        "treadmill", "elliptical", "exercise bike", "peloton", "rowing machine",
+        "weight bench", "squat rack", "power rack", "cable machine", "smith machine",
+        "dumbbells", "barbell", "kettlebell", "home gym",
+        # Furniture
+        "sofa", "couch", "sectional", "loveseat", "recliner", "sleeper sofa",
+        "bed frame", "platform bed", "headboard", "mattress", "memory foam mattress",
+        "dresser", "nightstand", "wardrobe", "armoire", "bookshelf", "bookcase",
+        "desk", "standing desk", "office chair", "dining table", "dining set",
+        "coffee table", "end table", "tv stand", "entertainment center",
+        "patio furniture", "outdoor furniture", "deck furniture", "gazebo",
+        # Musical instruments
+        "piano", "keyboard instrument", "electric guitar", "acoustic guitar", "bass guitar",
+        "drum set", "drum kit", "synthesizer", "audio interface", "studio monitor",
+        # Photography & video
+        "camera", "dslr", "mirrorless camera", "canon camera", "sony camera", "nikon camera",
+        "camera lens", "gimbal", "drone", "gopro", "camcorder", "tripod",
+        # Other big ticket
+        "hot tub", "spa", "sauna", "pool", "above ground pool", "trampoline",
+        "electric scooter", "electric bike", "ebike", "hoverboard",
+        "golf clubs", "golf set", "kayak", "paddleboard", "surfboard",
+        "sewing machine", "embroidery machine", "3d printer", "laser engraver",
+        "safe", "gun safe", "security camera", "nvr system",
+    ],
+    "electronics": [
+        "laptop", "macbook", "chromebook", "gaming laptop", "ultrabook",
+        "iphone", "samsung galaxy", "pixel phone", "android phone", "smartphone",
+        "ipad", "tablet", "android tablet", "surface pro",
+        "headphones", "airpods", "earbuds", "wireless headphones", "noise cancelling",
+        "monitor", "gaming monitor", "ultrawide monitor", "4k monitor",
+        "keyboard", "mechanical keyboard", "gaming keyboard",
+        "mouse", "gaming mouse", "trackpad",
+        "speaker", "bluetooth speaker", "soundbar", "home theater",
+        "gpu", "graphics card", "rtx", "radeon",
+        "cpu", "processor", "intel", "amd ryzen",
+        "ssd", "nvme", "hard drive", "nas",
+        "smartwatch", "apple watch", "garmin", "fitbit",
+        "smart home", "echo", "google home", "smart display",
+        "printer", "laser printer", "inkjet printer",
+        "router", "wifi router", "mesh wifi", "networking",
+        "ups battery", "power supply", "pc case",
+        "ram", "memory", "ddr5",
+        "tablet drawing", "wacom", "drawing tablet",
+        "streaming device", "roku", "fire stick", "apple tv",
+        "vr headset", "meta quest", "virtual reality",
+    ],
+    "clothing": [
+        "shoes", "sneakers", "boots", "running shoes", "nike", "adidas", "jordan",
+        "shirt", "dress shirt", "polo",
+        "pants", "jeans", "chinos", "trousers",
+        "jacket", "coat", "parka", "puffer jacket", "winter coat",
+        "hoodie", "sweatshirt", "sweater",
+        "dress", "gown", "blouse",
+        "suit", "blazer", "sport coat",
+        "handbag", "purse", "backpack", "luggage", "suitcase",
+        "watch", "luxury watch", "fossil", "seiko",
+        "sunglasses", "rayban", "oakley",
+        "athletic wear", "gym clothes", "leggings",
+        "underwear", "socks", "accessories",
+    ],
+    "gaming": [
+        "ps5", "playstation 5", "xbox series x", "xbox series s",
+        "nintendo switch", "switch oled", "steam deck",
+        "gaming pc", "prebuilt pc", "gaming desktop",
+        "controller", "ps5 controller", "xbox controller",
+        "gaming headset", "gaming chair",
+        "video game", "ps5 game", "xbox game", "nintendo game",
+        "graphics card gaming", "gaming monitor",
+        "capture card", "streaming setup",
+        "gaming keyboard mouse", "razer", "corsair", "logitech gaming",
+    ],
+    "general": []
 }
 
-# Search terms to scan per retailer — covers all your categories
+# Search terms — comprehensive coverage of all big ticket categories
 SEARCH_TERMS = [
-    "tv deal",
-    "laptop clearance",
-    "furniture clearance",
-    "appliance sale",
-    "gaming console deal",
-    "headphones sale",
-    "tablet clearance",
-    "shoes clearance",
-    "monitor deal",
-    "tools clearance",
-    "treadmill sale",
-    "refrigerator clearance",
+    # TVs & displays
+    "OLED TV clearance", "4K TV sale", "smart TV deal", "TV open box",
+    # Large appliances
+    "refrigerator clearance", "washer dryer sale", "dishwasher deal", "oven range clearance",
+    # Small appliances
+    "espresso machine sale", "kitchenaid mixer deal", "dyson clearance", "robot vacuum sale",
+    # Fitness
+    "treadmill clearance", "elliptical sale", "exercise bike deal", "home gym clearance",
+    # Furniture
+    "mattress sale", "sectional clearance", "office chair deal", "standing desk sale",
+    "patio furniture clearance", "dining set clearance",
+    # Tools & outdoor
+    "dewalt clearance", "milwaukee tool sale", "pressure washer deal", "lawn mower clearance",
+    "generator sale", "chainsaw deal",
+    # Electronics
+    "laptop clearance", "monitor sale", "headphones clearance", "tablet deal",
+    "graphics card sale", "gaming laptop clearance",
+    # Gaming
+    "PS5 deal", "Xbox clearance", "gaming PC sale", "Nintendo Switch deal",
+    # Photography
+    "mirrorless camera clearance", "camera lens deal", "drone sale",
+    # Musical
+    "piano keyboard sale", "guitar clearance", "drum set deal",
+    # Outdoor & recreation
+    "electric bike clearance", "kayak sale", "hot tub deal", "trampoline clearance",
+    # Open box & clearance (catches glitches)
+    "open box clearance", "scratch dent appliance", "floor model sale",
+    "liquidation electronics", "overstock furniture",
 ]
 
 RSS_SOURCES = [
@@ -618,7 +725,7 @@ def main():
 
     for retailer_name, scraper_fn in retailers:
         print(f"\nScraping {retailer_name}...")
-        terms = random.sample(SEARCH_TERMS, min(4, len(SEARCH_TERMS)))
+        terms = random.sample(SEARCH_TERMS, min(8, len(SEARCH_TERMS)))
         for term in terms:
             print(f"  Searching: {term}")
             try:
