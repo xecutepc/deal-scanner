@@ -176,6 +176,39 @@
       border-top: 0.5px solid var(--border);
     }
 
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 0.5px solid var(--border);
+    }
+
+    .buy-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.1s;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .buy-btn:active { opacity: 0.7; transform: scale(0.97); }
+
+    .buy-btn-amazon    { background: #ff9900; color: #000; }
+    .buy-btn-walmart   { background: #0071ce; color: #fff; }
+    .buy-btn-target    { background: #cc0000; color: #fff; }
+    .buy-btn-bestbuy   { background: #0046be; color: #fff; }
+    .buy-btn-homedepot { background: #f96302; color: #fff; }
+    .buy-btn-default   { background: var(--surface2); color: var(--text); border: 0.5px solid var(--border); }
+
     .deal-meta { display: flex; align-items: center; gap: 6px; }
 
     .cat-pill { font-size: 11px; font-weight: 500; padding: 3px 8px; border-radius: 6px; }
@@ -545,6 +578,17 @@
       filtered.map(dealCard).join('');
   }
 
+  function getBuyBtnClass(source) {
+    if (!source) return 'buy-btn-default';
+    const s = source.toLowerCase();
+    if (s.includes('amazon'))     return 'buy-btn-amazon';
+    if (s.includes('walmart'))    return 'buy-btn-walmart';
+    if (s.includes('target'))     return 'buy-btn-target';
+    if (s.includes('best buy'))   return 'buy-btn-bestbuy';
+    if (s.includes('home depot')) return 'buy-btn-homedepot';
+    return 'buy-btn-default';
+  }
+
   function dealCard(deal) {
     const isFlip   = deal.category === 'flipping';
     const isGlitch = deal.glitch === true;
@@ -552,14 +596,15 @@
     const nowHtml  = deal.sale     ? `<span class="price-now">$${deal.sale.toFixed(2)}</span>`     : '';
     const catLabel = deal.category === 'flipping' ? '💰 Flipper'
       : (deal.category || 'general').charAt(0).toUpperCase() + (deal.category || 'general').slice(1);
-    const catClass = 'cat-' + (deal.category || 'general');
-
+    const catClass  = 'cat-' + (deal.category || 'general');
     const cardExtra = isGlitch ? ' glitch-deal' : isFlip ? ' flip-deal' : '';
     const topLabel  = isGlitch
       ? '<div class="flip-label" style="color:var(--amber)">⚡ Possible glitch price</div>'
-      : isFlip
-      ? '<div class="flip-label">💰 Flip opportunity</div>'
-      : '';
+      : isFlip ? '<div class="flip-label">💰 Flip opportunity</div>' : '';
+
+    const btnClass = getBuyBtnClass(deal.source);
+    const btnLabel = deal.source && ['Amazon','Walmart','Target','Best Buy','Home Depot'].includes(deal.source)
+      ? `Open in ${deal.source}` : 'View Deal';
 
     let profitHtml = '';
     if (isFlip && deal.original && deal.sale) {
@@ -569,7 +614,7 @@
     }
 
     return `
-      <a class="deal-card${cardExtra}" href="${esc(deal.url)}" target="_blank" rel="noopener">
+      <div class="deal-card${cardExtra}">
         ${topLabel}
         <div class="deal-top">
           <div class="deal-title">${esc(deal.title)}</div>
@@ -582,11 +627,60 @@
           </div>
           <div class="deal-meta">
             <span class="cat-pill ${catClass}">${catLabel}</span>
-            <span class="source-label">${esc(deal.source || '')}</span>
           </div>
         </div>
         ${profitHtml}
-      </a>`;
+        <div class="card-footer">
+          <span class="source-label">${esc(deal.source || '')}</span>
+          <button class="buy-btn ${btnClass}" onclick="openDeal('${esc(deal.url)}','${esc(deal.source||'')}',event)">
+            ${btnLabel} →
+          </button>
+        </div>
+      </div>`;
+  }
+
+  function getDeepLink(url, source) {
+    try {
+      const encoded = encodeURIComponent(url);
+      if (source === 'Amazon' || url.includes('amazon.com')) {
+        // extract ASIN from URL
+        const asin = url.match(/\/dp\/([A-Z0-9]{10})/);
+        if (asin) return `com.amazon.mobile.shopping.web://www.amazon.com/dp/${asin[1]}`;
+        return `com.amazon.mobile.shopping.web://www.amazon.com`;
+      }
+      if (source === 'Walmart' || url.includes('walmart.com')) {
+        return `walmart://open?uri=${encoded}`;
+      }
+      if (source === 'Target' || url.includes('target.com')) {
+        return `target://open?url=${encoded}`;
+      }
+      if (source === 'Best Buy' || url.includes('bestbuy.com')) {
+        return `bestbuy://open?url=${encoded}`;
+      }
+      if (source === 'Home Depot' || url.includes('homedepot.com')) {
+        return `homedepot://open?url=${encoded}`;
+      }
+    } catch(e) {}
+    return null;
+  }
+
+  function openDeal(url, source, e) {
+    e.preventDefault();
+    e.stopPropagation();
+    const deep = getDeepLink(url, source);
+    if (deep) {
+      // try deep link first, fall back to browser after 500ms if app not installed
+      const fallback = setTimeout(() => { window.open(url, '_blank'); }, 600);
+      const iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.src = deep;
+      document.body.appendChild(iframe);
+      setTimeout(() => document.body.removeChild(iframe), 1000);
+      // cancel fallback if page loses focus (app opened)
+      window.addEventListener('blur', () => clearTimeout(fallback), { once: true });
+    } else {
+      window.open(url, '_blank');
+    }
   }
 
   function esc(s) {
