@@ -280,6 +280,36 @@
 
     .page { display: none; }
     .page.visible { display: block; }
+
+    /* Retailer tab row */
+    .retailer-tabs-wrap {
+      overflow-x: auto; scrollbar-width: none;
+      padding: 8px 20px;
+      border-bottom: 0.5px solid var(--border);
+      background: rgba(15,15,15,0.92);
+    }
+    .retailer-tabs-wrap::-webkit-scrollbar { display: none; }
+    .retailer-tabs { display: flex; gap: 6px; width: max-content; }
+
+    .rtab {
+      padding: 5px 12px; border-radius: 20px;
+      font-size: 12px; font-weight: 500;
+      border: 0.5px solid var(--border);
+      background: transparent; color: var(--muted);
+      cursor: pointer; transition: all 0.15s; white-space: nowrap;
+    }
+    .rtab.active { background: var(--surface2); color: var(--text); border-color: rgba(255,255,255,0.2); }
+    .rtab:not(.active):hover { color: var(--text); }
+
+    /* Retailer logo colors */
+    .rtab[data-retailer="Amazon"].active    { border-color: #ff9900; color: #ff9900; }
+    .rtab[data-retailer="Walmart"].active   { border-color: #0071ce; color: #0071ce; }
+    .rtab[data-retailer="Target"].active    { border-color: #cc0000; color: #cc0000; }
+    .rtab[data-retailer="Best Buy"].active  { border-color: #0046be; color: #0046be; }
+    .rtab[data-retailer="Home Depot"].active{ border-color: #f96302; color: #f96302; }
+    .rtab[data-retailer="Newegg"].active    { border-color: #e2231a; color: #e2231a; }
+    .rtab[data-retailer="Slickdeals"].active,.rtab[data-retailer="DealNews"].active,
+    .rtab[data-retailer="Reddit"].active    { border-color: var(--accent); color: var(--accent); }
   </style>
 </head>
 <body>
@@ -303,6 +333,20 @@
       <button class="tab" data-cat="gaming">Gaming</button>
       <button class="tab" data-cat="clothing">Clothing</button>
       <button class="tab" data-cat="general">General</button>
+    </div>
+  </div>
+  <div class="retailer-tabs-wrap" id="retailerTabsWrap">
+    <div class="retailer-tabs">
+      <button class="rtab active" data-retailer="all">All Stores</button>
+      <button class="rtab" data-retailer="Amazon">Amazon</button>
+      <button class="rtab" data-retailer="Walmart">Walmart</button>
+      <button class="rtab" data-retailer="Target">Target</button>
+      <button class="rtab" data-retailer="Best Buy">Best Buy</button>
+      <button class="rtab" data-retailer="Home Depot">Home Depot</button>
+      <button class="rtab" data-retailer="Newegg">Newegg</button>
+      <button class="rtab" data-retailer="Reddit">Reddit</button>
+      <button class="rtab" data-retailer="Slickdeals">Slickdeals</button>
+      <button class="rtab" data-retailer="DealNews">DealNews</button>
     </div>
   </div>
 </div>
@@ -421,6 +465,7 @@
 <script>
   let allDeals = [];
   let currentCat = 'all';
+  let currentRetailer = 'all';
   let minDiscount = 80;
   let enabledCats = { flipping: true, electronics: true, gaming: true, clothing: true, general: true };
 
@@ -456,6 +501,14 @@
       if (currentCat !== 'all' && d.category !== currentCat) return false;
       if (!enabledCats[d.category]) return false;
       if ((d.discount || 0) < minDiscount) return false;
+      if (currentRetailer !== 'all') {
+        // Reddit tab matches all Reddit subreddit sources
+        if (currentRetailer === 'Reddit') {
+          if (!d.source || !d.source.toLowerCase().includes('reddit')) return false;
+        } else {
+          if (d.source !== currentRetailer) return false;
+        }
+      }
       return true;
     });
 
@@ -529,10 +582,21 @@
     });
   });
 
+  document.querySelectorAll('.rtab').forEach(rtab => {
+    rtab.addEventListener('click', () => {
+      document.querySelectorAll('.rtab').forEach(t => t.classList.remove('active'));
+      rtab.classList.add('active');
+      currentRetailer = rtab.dataset.retailer;
+      renderFeed();
+    });
+  });
+
   function switchPage(page) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('visible'));
     document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-    document.getElementById('tabsWrap').style.display = page === 'settings' ? 'none' : 'block';
+    const showTabs = page !== 'settings';
+    document.getElementById('tabsWrap').style.display = showTabs ? 'block' : 'none';
+    document.getElementById('retailerTabsWrap').style.display = showTabs ? 'block' : 'none';
     if (page === 'settings') {
       document.getElementById('settingsPage').classList.add('visible');
       document.getElementById('navSettings').classList.add('active');
