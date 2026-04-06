@@ -19,7 +19,6 @@
       --muted: #888;
       --accent: #00d084;
       --accent-dim: rgba(0,208,132,0.15);
-      --red: #ff4f4f;
       --amber: #ffb020;
       --blue: #4f9eff;
       --purple: #a78bfa;
@@ -37,7 +36,6 @@
       padding-bottom: 80px;
     }
 
-    /* Header */
     .header {
       position: sticky;
       top: 0;
@@ -56,270 +54,158 @@
       border-bottom: 0.5px solid var(--border);
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+    .logo { display: flex; align-items: center; gap: 8px; }
 
     .logo-icon {
-      width: 28px;
-      height: 28px;
+      width: 28px; height: 28px;
       background: var(--accent);
       border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       font-size: 14px;
     }
 
-    .logo-text {
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-    }
+    .logo-text { font-size: 17px; font-weight: 700; letter-spacing: -0.3px; }
 
     .live-badge {
-      font-size: 11px;
-      font-weight: 600;
-      background: var(--accent-dim);
-      color: var(--accent);
-      padding: 3px 8px;
-      border-radius: 20px;
+      font-size: 11px; font-weight: 600;
+      background: var(--accent-dim); color: var(--accent);
+      padding: 3px 8px; border-radius: 20px;
       border: 0.5px solid rgba(0,208,132,0.3);
-      display: flex;
-      align-items: center;
-      gap: 4px;
+      display: flex; align-items: center; gap: 4px;
     }
 
     .live-dot {
-      width: 5px;
-      height: 5px;
-      background: var(--accent);
-      border-radius: 50%;
+      width: 5px; height: 5px;
+      background: var(--accent); border-radius: 50%;
       animation: pulse 2s infinite;
     }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
-    /* Category tabs */
     .tabs-wrap {
-      overflow-x: auto;
-      scrollbar-width: none;
+      overflow-x: auto; scrollbar-width: none;
       padding: 12px 20px;
       border-bottom: 0.5px solid var(--border);
     }
-
     .tabs-wrap::-webkit-scrollbar { display: none; }
 
-    .tabs {
-      display: flex;
-      gap: 8px;
-      width: max-content;
-    }
+    .tabs { display: flex; gap: 8px; width: max-content; }
 
     .tab {
-      padding: 7px 16px;
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: 500;
+      padding: 7px 16px; border-radius: 20px;
+      font-size: 13px; font-weight: 500;
       border: 0.5px solid var(--border);
-      background: transparent;
-      color: var(--muted);
-      cursor: pointer;
-      transition: all 0.15s;
-      white-space: nowrap;
+      background: transparent; color: var(--muted);
+      cursor: pointer; transition: all 0.15s; white-space: nowrap;
     }
 
-    .tab.active {
-      background: var(--accent);
-      color: #000;
-      border-color: var(--accent);
-      font-weight: 600;
-    }
+    .tab.active { background: var(--accent); color: #000; border-color: var(--accent); font-weight: 600; }
+    .tab:not(.active):hover { border-color: rgba(255,255,255,0.2); color: var(--text); }
+    .tab.flip-tab:not(.active) { border-color: rgba(0,208,132,0.4); color: var(--accent); }
 
-    .tab:not(.active):hover {
-      border-color: rgba(255,255,255,0.2);
-      color: var(--text);
-    }
-
-    /* Stats bar */
     .stats-bar {
-      display: flex;
-      gap: 1px;
+      display: flex; gap: 1px;
       background: var(--border);
       border-bottom: 0.5px solid var(--border);
     }
 
-    .stat {
-      flex: 1;
-      padding: 12px;
-      background: var(--bg);
-      text-align: center;
-    }
+    .stat { flex: 1; padding: 12px; background: var(--bg); text-align: center; }
+    .stat-num { font-size: 20px; font-weight: 700; color: var(--accent); }
+    .stat-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
 
-    .stat-num {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    .stat-label {
-      font-size: 10px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-top: 2px;
-    }
-
-    /* Feed */
-    .feed {
-      padding: 16px 16px 0;
-    }
+    .feed { padding: 16px 16px 0; }
 
     .section-label {
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: var(--muted);
-      margin-bottom: 12px;
+      font-size: 12px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.8px;
+      color: var(--muted); margin-bottom: 12px;
     }
 
-    /* Deal card */
+    .flip-info-banner {
+      background: rgba(0,208,132,0.08);
+      border: 0.5px solid rgba(0,208,132,0.25);
+      border-radius: 12px; padding: 12px 14px; margin-bottom: 16px;
+    }
+
+    .flip-info-title { font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+    .flip-info-sub { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
     .deal-card {
-      background: var(--surface);
-      border-radius: 16px;
-      border: 0.5px solid var(--border);
-      padding: 16px;
-      margin-bottom: 12px;
-      cursor: pointer;
+      background: var(--surface); border-radius: 16px;
+      border: 0.5px solid var(--border); padding: 16px;
+      margin-bottom: 12px; cursor: pointer;
       transition: transform 0.1s, background 0.1s;
-      text-decoration: none;
-      display: block;
-      color: inherit;
+      text-decoration: none; display: block; color: inherit;
     }
 
     .deal-card:active { transform: scale(0.98); background: var(--surface2); }
+    .deal-card.flip-deal { border-color: rgba(0,208,132,0.35); }
+
+    .flip-label {
+      font-size: 10px; font-weight: 700; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;
+    }
 
     .deal-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 10px;
+      display: flex; justify-content: space-between;
+      align-items: flex-start; gap: 12px; margin-bottom: 10px;
     }
 
-    .deal-title {
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 1.4;
-      flex: 1;
-    }
+    .deal-title { font-size: 14px; font-weight: 500; line-height: 1.4; flex: 1; }
 
     .discount-badge {
-      font-size: 15px;
-      font-weight: 800;
-      color: var(--accent);
-      background: var(--accent-dim);
-      padding: 4px 10px;
-      border-radius: 10px;
-      white-space: nowrap;
-      flex-shrink: 0;
+      font-size: 15px; font-weight: 800;
+      color: var(--accent); background: var(--accent-dim);
+      padding: 4px 10px; border-radius: 10px;
+      white-space: nowrap; flex-shrink: 0;
     }
 
-    .deal-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .flip-deal .discount-badge { font-size: 17px; background: rgba(0,208,132,0.25); }
+
+    .deal-bottom { display: flex; align-items: center; justify-content: space-between; }
+    .deal-prices { display: flex; align-items: center; gap: 8px; }
+    .price-was { font-size: 13px; color: var(--muted); text-decoration: line-through; }
+    .price-now { font-size: 16px; font-weight: 700; color: var(--text); }
+
+    .profit-hint {
+      font-size: 11px; color: var(--accent);
+      margin-top: 8px; padding-top: 8px;
+      border-top: 0.5px solid var(--border);
     }
 
-    .deal-prices {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+    .deal-meta { display: flex; align-items: center; gap: 6px; }
 
-    .price-was {
-      font-size: 13px;
-      color: var(--muted);
-      text-decoration: line-through;
-    }
-
-    .price-now {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .deal-meta {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .cat-pill {
-      font-size: 11px;
-      font-weight: 500;
-      padding: 3px 8px;
-      border-radius: 6px;
-    }
-
-    .cat-electronics { background: rgba(79,158,255,0.15); color: var(--blue); }
+    .cat-pill { font-size: 11px; font-weight: 500; padding: 3px 8px; border-radius: 6px; }
+    .cat-electronics { background: rgba(79,158,255,0.15);  color: var(--blue); }
     .cat-gaming      { background: rgba(167,139,250,0.15); color: var(--purple); }
-    .cat-clothing    { background: rgba(255,176,32,0.15); color: var(--amber); }
+    .cat-clothing    { background: rgba(255,176,32,0.15);  color: var(--amber); }
     .cat-general     { background: rgba(255,255,255,0.08); color: var(--muted); }
+    .cat-flipping    { background: rgba(0,208,132,0.2);    color: var(--accent); font-weight: 700; }
 
-    .source-label {
-      font-size: 11px;
-      color: var(--muted);
-    }
+    .source-label { font-size: 11px; color: var(--muted); }
 
-    /* Empty state */
-    .empty {
-      text-align: center;
-      padding: 60px 20px;
-      color: var(--muted);
-    }
-
+    .empty { text-align: center; padding: 60px 20px; color: var(--muted); }
     .empty-icon { font-size: 40px; margin-bottom: 12px; }
     .empty-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
     .empty-sub { font-size: 14px; line-height: 1.5; }
 
-    /* Loading */
-    .loading {
-      text-align: center;
-      padding: 40px;
-      color: var(--muted);
-      font-size: 14px;
-    }
+    .loading { text-align: center; padding: 40px; color: var(--muted); font-size: 14px; }
 
     .spinner {
-      width: 24px;
-      height: 24px;
-      border: 2px solid var(--border);
-      border-top-color: var(--accent);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
+      width: 24px; height: 24px;
+      border: 2px solid var(--border); border-top-color: var(--accent);
+      border-radius: 50%; animation: spin 0.8s linear infinite;
       margin: 0 auto 12px;
     }
 
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* Bottom nav */
     .bottom-nav {
-      position: fixed;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
-      max-width: 480px;
+      position: fixed; bottom: 0;
+      left: 50%; transform: translateX(-50%);
+      width: 100%; max-width: 480px;
       background: rgba(15,15,15,0.95);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       border-top: 0.5px solid var(--border);
       display: flex;
       padding: 8px 0 calc(8px + env(safe-area-inset-bottom, 0px));
@@ -327,120 +213,71 @@
     }
 
     .nav-item {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3px;
-      padding: 6px;
-      cursor: pointer;
-      color: var(--muted);
-      font-size: 10px;
-      font-weight: 500;
-      transition: color 0.15s;
-      border: none;
-      background: transparent;
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; gap: 3px; padding: 6px;
+      cursor: pointer; color: var(--muted);
+      font-size: 10px; font-weight: 500;
+      transition: color 0.15s; border: none; background: transparent;
     }
 
     .nav-item.active { color: var(--accent); }
-
     .nav-icon { font-size: 20px; line-height: 1; }
 
-    /* Settings page */
-    .settings-page { display: none; padding: 20px 16px; }
-    .settings-page.visible { display: block; }
-
-    .settings-section {
-      margin-bottom: 24px;
-    }
+    .settings-page { padding: 20px 16px; }
+    .settings-section { margin-bottom: 24px; }
 
     .settings-title {
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: var(--muted);
-      margin-bottom: 8px;
-      padding: 0 4px;
+      font-size: 12px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.8px;
+      color: var(--muted); margin-bottom: 8px; padding: 0 4px;
     }
 
     .settings-card {
-      background: var(--surface);
-      border-radius: 16px;
-      border: 0.5px solid var(--border);
-      overflow: hidden;
+      background: var(--surface); border-radius: 16px;
+      border: 0.5px solid var(--border); overflow: hidden;
     }
 
     .settings-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 16px;
+      display: flex; align-items: center;
+      justify-content: space-between; padding: 14px 16px;
       border-bottom: 0.5px solid var(--border);
     }
 
     .settings-row:last-child { border-bottom: none; }
-
     .settings-row-label { font-size: 15px; }
     .settings-row-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
 
-    /* Toggle */
     .toggle {
-      width: 44px;
-      height: 26px;
-      background: var(--surface2);
-      border-radius: 13px;
-      position: relative;
-      cursor: pointer;
-      transition: background 0.2s;
-      border: 0.5px solid var(--border);
-      flex-shrink: 0;
+      width: 44px; height: 26px; background: var(--surface2);
+      border-radius: 13px; position: relative; cursor: pointer;
+      transition: background 0.2s; border: 0.5px solid var(--border); flex-shrink: 0;
     }
 
     .toggle.on { background: var(--accent); border-color: var(--accent); }
 
     .toggle-knob {
-      width: 20px;
-      height: 20px;
-      background: white;
-      border-radius: 50%;
-      position: absolute;
-      top: 3px;
-      left: 3px;
-      transition: transform 0.2s;
+      width: 20px; height: 20px; background: white;
+      border-radius: 50%; position: absolute;
+      top: 3px; left: 3px; transition: transform 0.2s;
     }
 
     .toggle.on .toggle-knob { transform: translateX(18px); }
 
-    /* Discount slider */
     .slider-wrap { padding: 14px 16px; }
-    .slider-label {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 10px;
-      font-size: 14px;
-    }
+    .slider-label { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 14px; }
     .slider-val { font-weight: 700; color: var(--accent); }
 
     input[type=range] {
-      width: 100%;
-      -webkit-appearance: none;
-      height: 4px;
-      background: var(--surface2);
-      border-radius: 2px;
-      outline: none;
+      width: 100%; -webkit-appearance: none;
+      height: 4px; background: var(--surface2);
+      border-radius: 2px; outline: none;
     }
 
     input[type=range]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 22px;
-      height: 22px;
-      background: var(--accent);
-      border-radius: 50%;
-      cursor: pointer;
+      -webkit-appearance: none; width: 22px; height: 22px;
+      background: var(--accent); border-radius: 50%; cursor: pointer;
     }
 
-    /* Page transitions */
     .page { display: none; }
     .page.visible { display: block; }
   </style>
@@ -458,10 +295,10 @@
       LIVE
     </div>
   </div>
-
   <div class="tabs-wrap" id="tabsWrap">
     <div class="tabs">
       <button class="tab active" data-cat="all">All Deals</button>
+      <button class="tab flip-tab" data-cat="flipping">💰 Flipper</button>
       <button class="tab" data-cat="electronics">Electronics</button>
       <button class="tab" data-cat="gaming">Gaming</button>
       <button class="tab" data-cat="clothing">Clothing</button>
@@ -470,7 +307,6 @@
   </div>
 </div>
 
-<!-- Deals page -->
 <div class="page visible" id="dealsPage">
   <div class="stats-bar">
     <div class="stat">
@@ -486,19 +322,13 @@
       <div class="stat-label">Last 24h</div>
     </div>
   </div>
-
   <div class="feed" id="feed">
-    <div class="loading">
-      <div class="spinner"></div>
-      Loading deals...
-    </div>
+    <div class="loading"><div class="spinner"></div>Loading deals...</div>
   </div>
 </div>
 
-<!-- Settings page -->
 <div class="page" id="settingsPage">
-  <div class="settings-page visible">
-
+  <div class="settings-page">
     <div class="settings-section">
       <div class="settings-title">Notifications</div>
       <div class="settings-card">
@@ -517,8 +347,15 @@
       <div class="settings-card">
         <div class="settings-row">
           <div>
+            <div class="settings-row-label">💰 Flipper</div>
+            <div class="settings-row-sub">$500+ retail at 90%+ off — TVs, furniture, appliances</div>
+          </div>
+          <div class="toggle on" id="tog-flipping"><div class="toggle-knob"></div></div>
+        </div>
+        <div class="settings-row">
+          <div>
             <div class="settings-row-label">Electronics</div>
-            <div class="settings-row-sub">Laptops, phones, TVs, headphones</div>
+            <div class="settings-row-sub">Laptops, phones, monitors, headphones</div>
           </div>
           <div class="toggle on" id="tog-electronics"><div class="toggle-knob"></div></div>
         </div>
@@ -563,11 +400,9 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
-<!-- Bottom nav -->
 <div class="bottom-nav">
   <button class="nav-item active" id="navDeals">
     <span class="nav-icon">🏷</span>
@@ -585,17 +420,14 @@
 
 <script>
   let allDeals = [];
-  let savedDeals = JSON.parse(localStorage.getItem('savedDeals') || '[]');
   let currentCat = 'all';
-  let currentPage = 'deals';
   let minDiscount = 80;
-  let enabledCats = { electronics: true, gaming: true, clothing: true, general: true };
+  let enabledCats = { flipping: true, electronics: true, gaming: true, clothing: true, general: true };
 
-  // Load deals from the data file
   async function loadDeals() {
     try {
       const r = await fetch('data/deals.json?t=' + Date.now());
-      if (!r.ok) throw new Error('No deals yet');
+      if (!r.ok) throw new Error('no deals');
       allDeals = await r.json();
       renderFeed();
       updateStats();
@@ -611,10 +443,7 @@
 
   function updateStats() {
     const now = Date.now();
-    const last24h = allDeals.filter(d => {
-      const t = new Date(d.found_at).getTime();
-      return now - t < 86400000;
-    });
+    const last24h = allDeals.filter(d => now - new Date(d.found_at).getTime() < 86400000);
     const best = allDeals.reduce((max, d) => Math.max(max, d.discount || 0), 0);
     document.getElementById('statTotal').textContent = allDeals.length;
     document.getElementById('statBest').textContent = best ? best + '%' : '—';
@@ -622,6 +451,7 @@
   }
 
   function renderFeed() {
+    const isFlip = currentCat === 'flipping';
     const filtered = allDeals.filter(d => {
       if (currentCat !== 'all' && d.category !== currentCat) return false;
       if (!enabledCats[d.category]) return false;
@@ -629,56 +459,67 @@
       return true;
     });
 
+    const banner = isFlip ? `
+      <div class="flip-info-banner">
+        <div class="flip-info-title">💰 Flipper Deals</div>
+        <div class="flip-info-sub">$500+ retail items at 90%+ off. Buy cheap, sell under market, pocket the difference.</div>
+      </div>` : '';
+
     if (!filtered.length) {
-      document.getElementById('feed').innerHTML = `
+      document.getElementById('feed').innerHTML = banner + `
         <div class="empty">
-          <div class="empty-icon">😔</div>
-          <div class="empty-title">No deals in this category</div>
-          <div class="empty-sub">Try a different category or lower your minimum discount in Settings.</div>
+          <div class="empty-icon">${isFlip ? '💰' : '😔'}</div>
+          <div class="empty-title">${isFlip ? 'No flipper deals yet' : 'No deals here'}</div>
+          <div class="empty-sub">${isFlip ? 'These are rare — big ticket items at 90%+ off. Check back soon.' : 'Try a different category or lower the discount in Settings.'}</div>
         </div>`;
       return;
     }
 
-    document.getElementById('feed').innerHTML = `
-      <div class="section-label">${filtered.length} deal${filtered.length !== 1 ? 's' : ''} found</div>
-      ${filtered.map(deal => dealCard(deal)).join('')}
-    `;
+    document.getElementById('feed').innerHTML = banner +
+      `<div class="section-label">${filtered.length} deal${filtered.length !== 1 ? 's' : ''} found</div>` +
+      filtered.map(dealCard).join('');
   }
 
   function dealCard(deal) {
+    const isFlip = deal.category === 'flipping';
     const wasHtml = deal.original ? `<span class="price-was">$${deal.original.toFixed(2)}</span>` : '';
-    const nowHtml = deal.sale ? `<span class="price-now">$${deal.sale.toFixed(2)}</span>` : '';
+    const nowHtml = deal.sale     ? `<span class="price-now">$${deal.sale.toFixed(2)}</span>`     : '';
+    const catLabel = deal.category === 'flipping' ? '💰 Flipper'
+      : (deal.category || 'general').charAt(0).toUpperCase() + (deal.category || 'general').slice(1);
     const catClass = 'cat-' + (deal.category || 'general');
-    const catLabel = (deal.category || 'general').charAt(0).toUpperCase() + (deal.category || 'general').slice(1);
-    const isSaved = savedDeals.includes(deal.url);
+
+    let profitHtml = '';
+    if (isFlip && deal.original && deal.sale) {
+      const resale = Math.round(deal.original * 0.5);
+      const profit = Math.round(deal.original * 0.5 - deal.sale);
+      if (profit > 0) profitHtml = `<div class="profit-hint">Sell at ~$${resale} (50% of retail) → est. $${profit} profit</div>`;
+    }
 
     return `
-      <a class="deal-card" href="${deal.url}" target="_blank" rel="noopener">
+      <a class="deal-card${isFlip ? ' flip-deal' : ''}" href="${esc(deal.url)}" target="_blank" rel="noopener">
+        ${isFlip ? '<div class="flip-label">Flip opportunity</div>' : ''}
         <div class="deal-top">
-          <div class="deal-title">${escHtml(deal.title)}</div>
+          <div class="deal-title">${esc(deal.title)}</div>
           <div class="discount-badge">${deal.discount}% OFF</div>
         </div>
         <div class="deal-bottom">
           <div class="deal-prices">
-            ${wasHtml}
-            ${nowHtml}
+            ${wasHtml}${nowHtml}
             ${!wasHtml && !nowHtml ? '<span style="font-size:13px;color:var(--muted)">See deal for price</span>' : ''}
           </div>
           <div class="deal-meta">
             <span class="cat-pill ${catClass}">${catLabel}</span>
-            <span class="source-label">${escHtml(deal.source || '')}</span>
+            <span class="source-label">${esc(deal.source || '')}</span>
           </div>
         </div>
+        ${profitHtml}
       </a>`;
   }
 
-  function escHtml(str) {
-    return String(str)
-      .replace(/&/g,'&amp;').replace(/</g,'&lt;')
-      .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  function esc(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
 
-  // Category tabs
   document.querySelectorAll('.tab').forEach(tab => {
     tab.addEventListener('click', () => {
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -688,51 +529,40 @@
     });
   });
 
-  // Bottom nav
-  function showPage(page) {
-    currentPage = page;
+  function switchPage(page) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('visible'));
     document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-    document.getElementById('tabsWrap').style.display = page === 'deals' ? 'block' : 'none';
-
-    if (page === 'deals') {
-      document.getElementById('dealsPage').classList.add('visible');
-      document.getElementById('navDeals').classList.add('active');
-    } else if (page === 'saved') {
-      document.getElementById('dealsPage').classList.add('visible');
-      document.getElementById('navSaved').classList.add('active');
-      // filter to saved
-    } else if (page === 'settings') {
+    document.getElementById('tabsWrap').style.display = page === 'settings' ? 'none' : 'block';
+    if (page === 'settings') {
       document.getElementById('settingsPage').classList.add('visible');
       document.getElementById('navSettings').classList.add('active');
+    } else {
+      document.getElementById('dealsPage').classList.add('visible');
+      document.getElementById(page === 'saved' ? 'navSaved' : 'navDeals').classList.add('active');
     }
   }
 
-  document.getElementById('navDeals').addEventListener('click', () => showPage('deals'));
-  document.getElementById('navSaved').addEventListener('click', () => showPage('saved'));
-  document.getElementById('navSettings').addEventListener('click', () => showPage('settings'));
+  document.getElementById('navDeals').addEventListener('click',    () => switchPage('deals'));
+  document.getElementById('navSaved').addEventListener('click',    () => switchPage('saved'));
+  document.getElementById('navSettings').addEventListener('click', () => switchPage('settings'));
 
-  // Discount slider
-  const slider = document.getElementById('discountSlider');
-  slider.addEventListener('input', () => {
-    minDiscount = parseInt(slider.value);
+  document.getElementById('discountSlider').addEventListener('input', function() {
+    minDiscount = parseInt(this.value);
     document.getElementById('sliderVal').textContent = minDiscount + '%';
     renderFeed();
   });
 
-  // Category toggles
   document.querySelectorAll('[id^="tog-"]').forEach(tog => {
-    const cat = tog.id.replace('tog-', '');
     tog.addEventListener('click', () => {
+      const cat = tog.id.replace('tog-', '');
       enabledCats[cat] = !enabledCats[cat];
       tog.classList.toggle('on', enabledCats[cat]);
       renderFeed();
     });
   });
 
-  // Init
   loadDeals();
-  setInterval(loadDeals, 5 * 60 * 1000); // refresh every 5 min
+  setInterval(loadDeals, 5 * 60 * 1000);
 </script>
 </body>
 </html>
