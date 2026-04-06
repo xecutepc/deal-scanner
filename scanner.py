@@ -1,32 +1,34 @@
 #!/usr/bin/env python3
 """
 Deal Scanner - Finds 80%+ off deals and notifies via Pushover
-Sources: Slickdeals, DealNews, Reddit
+Sources: Slickdeals, DealNews, Reddit + direct retailer scraping
+Retailers: Amazon, Walmart, Target, Home Depot, Newegg, Best Buy
 """
 
 import requests
 import json
 import os
 import re
+import time
+import random
 import hashlib
 import xml.etree.ElementTree as ET
 from datetime import datetime
+from bs4 import BeautifulSoup
 
 # ── Config ────────────────────────────────────────────────────────────────────
 PUSHOVER_USER_KEY  = os.environ.get("PUSHOVER_USER_KEY", "")
 PUSHOVER_TOKEN     = os.environ.get("PUSHOVER_TOKEN", "")
-MIN_DISCOUNT       = 80  # minimum % off to trigger notification
+MIN_DISCOUNT       = 80
 
-# Minimum ORIGINAL price — filters out cheap junk (e.g. $5 item at 80% off)
 MIN_ORIGINAL_PRICE = {
-    "flipping":    500,   # TVs, furniture, appliances must be $500+ retail
-    "electronics": 50,    # laptops, phones etc must be $50+ retail
-    "gaming":      30,    # games/accessories must be $30+ retail
-    "clothing":    40,    # clothing must be $40+ retail
-    "general":     20,    # anything else must be $20+ retail
+    "flipping":    500,
+    "electronics": 50,
+    "gaming":      30,
+    "clothing":    40,
+    "general":     20,
 }
 
-# Minimum SALE price — the deal itself must still be worth something
 MIN_SALE_PRICE = {
     "flipping":    10,
     "electronics": 5,
@@ -34,48 +36,67 @@ MIN_SALE_PRICE = {
     "clothing":    5,
     "general":     3,
 }
-SEEN_DEALS_FILE    = "data/seen_deals.json"
+
+SEEN_DEALS_FILE = "data/seen_deals.json"
 
 CATEGORIES = {
     "flipping":    ["tv", "television", "sofa", "couch", "furniture", "mattress", "refrigerator", "fridge", "washer", "dryer", "dishwasher", "oven", "range", "microwave", "vacuum", "dyson", "robot vacuum", "air purifier", "dehumidifier", "generator", "power tool", "dewalt", "milwaukee", "makita", "table saw", "drill", "compressor", "lawnmower", "lawn mower", "pressure washer", "treadmill", "elliptical", "exercise bike", "desk", "office chair", "bookshelf", "dresser", "nightstand", "bed frame", "recliner", "sectional"],
-    "electronics": ["electronics", "laptop", "phone", "camera", "tablet", "headphone", "monitor", "keyboard", "mouse", "speaker", "console", "gpu", "cpu", "ssd", "hard drive", "smartwatch", "projector", "printer"],
+    "electronics": ["laptop", "phone", "camera", "tablet", "headphone", "monitor", "keyboard", "mouse", "speaker", "gpu", "cpu", "ssd", "hard drive", "smartwatch", "projector", "printer"],
     "clothing":    ["clothing", "shoes", "shirt", "pants", "jacket", "boots", "sneakers", "dress", "hoodie", "coat", "apparel", "fashion"],
-    "gaming":      ["gaming", "game", "xbox", "playstation", "nintendo", "steam", "ps5", "ps4", "switch", "controller", "graphics card"],
-    "general":     []  # catches everything else
+    "gaming":      ["gaming", "game", "xbox", "playstation", "nintendo", "ps5", "ps4", "switch", "controller", "graphics card"],
+    "general":     []
 }
 
-SOURCES = [
-    {
-        "name": "Slickdeals",
-        "url": "https://slickdeals.net/newsearch.php?mode=frontpage&searcharea=deals&searchin=first&rss=1",
-        "type": "rss"
-    },
-    {
-        "name": "DealNews",
-        "url": "https://www.dealnews.com/rss/",
-        "type": "rss"
-    },
-    {
-        "name": "Reddit r/deals",
-        "url": "https://www.reddit.com/r/deals/new.json?limit=25",
-        "type": "reddit"
-    },
-    {
-        "name": "Reddit r/buildapcsales",
-        "url": "https://www.reddit.com/r/buildapcsales/new.json?limit=25",
-        "type": "reddit"
-    },
-    {
-        "name": "Reddit r/GameDeals",
-        "url": "https://www.reddit.com/r/GameDeals/new.json?limit=25",
-        "type": "reddit"
-    },
-    {
-        "name": "Reddit r/frugalmalefashion",
-        "url": "https://www.reddit.com/r/frugalmalefashion/new.json?limit=25",
-        "type": "reddit"
-    }
+# Search terms to scan per retailer — covers all your categories
+SEARCH_TERMS = [
+    "tv deal",
+    "laptop clearance",
+    "furniture clearance",
+    "appliance sale",
+    "gaming console deal",
+    "headphones sale",
+    "tablet clearance",
+    "shoes clearance",
+    "monitor deal",
+    "tools clearance",
+    "treadmill sale",
+    "refrigerator clearance",
 ]
+
+RSS_SOURCES = [
+    {"name": "Slickdeals",           "url": "https://slickdeals.net/newsearch.php?mode=frontpage&searcharea=deals&searchin=first&rss=1", "type": "rss"},
+    {"name": "DealNews",             "url": "https://www.dealnews.com/rss/",                                                             "type": "rss"},
+    {"name": "Reddit r/deals",       "url": "https://www.reddit.com/r/deals/new.json?limit=25",                                         "type": "reddit"},
+    {"name": "Reddit r/buildapcsales","url": "https://www.reddit.com/r/buildapcsales/new.json?limit=25",                                 "type": "reddit"},
+    {"name": "Reddit r/GameDeals",   "url": "https://www.reddit.com/r/GameDeals/new.json?limit=25",                                     "type": "reddit"},
+    {"name": "Reddit r/frugalmalefashion", "url": "https://www.reddit.com/r/frugalmalefashion/new.json?limit=25",                       "type": "reddit"},
+    {"name": "Reddit r/glitch_in_the_matrix", "url": "https://www.reddit.com/r/glitch_in_the_matrix/new.json?limit=25",                "type": "reddit"},
+]
+
+# ── Browser headers rotation ───────────────────────────────────────────────────
+USER_AGENTS = [
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3 Safari/605.1.15",
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+]
+
+def get_headers(referer="https://www.google.com"):
+    return {
+        "User-Agent": random.choice(USER_AGENTS),
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Referer": referer,
+        "DNT": "1",
+        "Connection": "keep-alive",
+        "Upgrade-Insecure-Requests": "1",
+    }
+
+def polite_delay():
+    """Random delay between requests so we don't look like a bot."""
+    time.sleep(random.uniform(2.5, 5.0))
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -88,16 +109,13 @@ def load_seen_deals():
 
 def save_seen_deals(seen):
     os.makedirs("data", exist_ok=True)
-    # keep only last 1000 to avoid file bloat
-    seen_list = list(seen)[-1000:]
     with open(SEEN_DEALS_FILE, "w") as f:
-        json.dump(seen_list, f)
+        json.dump(list(seen)[-1000:], f)
 
 def deal_id(title, url):
     return hashlib.md5(f"{title}{url}".encode()).hexdigest()
 
 def extract_discount(text):
-    """Try to find a discount percentage in text like '80% off', 'save 85%', etc."""
     patterns = [
         r'(\d+)%\s*off',
         r'save\s+(\d+)%',
@@ -111,27 +129,23 @@ def extract_discount(text):
             return int(match.group(1))
     return None
 
-def extract_prices(text):
-    """Try to extract was/now prices and compute discount."""
-    # patterns like "$100 $20", "was $100 now $15", "$100 -> $18"
-    patterns = [
-        r'was\s*\$?([\d,]+\.?\d*)\s*(?:now|for)?\s*\$?([\d,]+\.?\d*)',
-        r'\$?([\d,]+\.?\d*)\s*[-–→]\s*\$?([\d,]+\.?\d*)',
-        r'retail[:\s]*\$?([\d,]+\.?\d*).*?(?:sale|now|for)[:\s]*\$?([\d,]+\.?\d*)',
-        r'orig(?:inal)?[:\s]*\$?([\d,]+\.?\d*).*?\$?([\d,]+\.?\d*)',
-    ]
-    for pattern in patterns:
-        match = re.search(pattern, text, re.IGNORECASE)
-        if match:
-            try:
-                original = float(match.group(1).replace(",", ""))
-                sale     = float(match.group(2).replace(",", ""))
-                if original > sale > 0:
-                    discount = round((1 - sale / original) * 100)
-                    return original, sale, discount
-            except:
-                pass
-    return None, None, None
+def compute_discount(original, sale):
+    if original and sale and original > sale > 0:
+        return round((1 - sale / original) * 100)
+    return None
+
+def parse_price(text):
+    """Extract a dollar price from a string."""
+    if not text:
+        return None
+    text = text.strip().replace(",", "")
+    match = re.search(r'\$?([\d]+\.?\d*)', text)
+    if match:
+        try:
+            return float(match.group(1))
+        except:
+            pass
+    return None
 
 def categorize(title, description=""):
     text = (title + " " + description).lower()
@@ -142,131 +156,371 @@ def categorize(title, description=""):
             return cat
     return "general"
 
-def check_deal(title, description, url, source):
-    """Return deal dict if it qualifies, else None."""
-    combined = f"{title} {description}"
+def build_deal(title, url, source, original, sale, discount, category=None):
+    """Validate and build a deal dict, returns None if it doesn't qualify."""
+    if not category:
+        category = categorize(title)
 
-    discount = extract_discount(combined)
-    original, sale, computed_discount = extract_prices(combined)
-
-    # prefer computed from prices if available
-    if computed_discount and computed_discount >= MIN_DISCOUNT:
-        discount = computed_discount
-    elif discount and discount >= MIN_DISCOUNT:
-        pass  # use extracted discount
-    else:
+    # must have a discount
+    if not discount:
+        discount = compute_discount(original, sale)
+    if not discount or discount < MIN_DISCOUNT:
         return None
 
-    category = categorize(title, description)
-
-    # flipping category requires 90%+ off
+    # flipping needs 90%+
     if category == "flipping" and discount < 90:
         return None
 
-    # enforce minimum original price — ignore cheap junk
-    min_orig = MIN_ORIGINAL_PRICE.get(category, 20)
-    if original and original < min_orig:
+    # price floor checks
+    if original and original < MIN_ORIGINAL_PRICE.get(category, 20):
         return None
-
-    # enforce minimum sale price — deal must still be worth something
-    min_sale = MIN_SALE_PRICE.get(category, 3)
-    if sale and sale < min_sale:
+    if sale and sale < MIN_SALE_PRICE.get(category, 3):
         return None
 
     return {
-        "title":    title.strip(),
+        "title":    title.strip()[:200],
         "url":      url,
         "source":   source,
         "discount": discount,
         "original": original,
         "sale":     sale,
         "category": category,
-        "found_at": datetime.utcnow().isoformat()
+        "found_at": datetime.utcnow().isoformat(),
     }
 
-# ── Fetchers ──────────────────────────────────────────────────────────────────
+# ── RSS + Reddit fetchers ─────────────────────────────────────────────────────
 
 def fetch_rss(source):
     deals = []
-    headers = {"User-Agent": "DealScanner/1.0"}
     try:
-        r = requests.get(source["url"], headers=headers, timeout=15)
+        r = requests.get(source["url"], headers={"User-Agent": "DealScanner/1.0"}, timeout=15)
         r.raise_for_status()
         root = ET.fromstring(r.content)
-        items = root.findall(".//item")
-        for item in items:
+        for item in root.findall(".//item"):
             title = item.findtext("title") or ""
             desc  = item.findtext("description") or ""
             url   = item.findtext("link") or ""
-            deal  = check_deal(title, desc, url, source["name"])
+            combined = f"{title} {desc}"
+            original, sale = None, None
+            discount = extract_discount(combined)
+            # try to pull prices
+            price_match = re.search(r'was\s*\$?([\d,]+\.?\d*).*?now\s*\$?([\d,]+\.?\d*)', combined, re.IGNORECASE)
+            if price_match:
+                original = parse_price(price_match.group(1))
+                sale     = parse_price(price_match.group(2))
+            deal = build_deal(title, url, source["name"], original, sale, discount)
             if deal:
                 deals.append(deal)
     except Exception as e:
-        print(f"RSS error ({source['name']}): {e}")
+        print(f"  RSS error ({source['name']}): {e}")
     return deals
 
 def fetch_reddit(source):
     deals = []
-    headers = {"User-Agent": "DealScanner/1.0"}
     try:
-        r = requests.get(source["url"], headers=headers, timeout=15)
+        r = requests.get(source["url"], headers={"User-Agent": "DealScanner/1.0"}, timeout=15)
         r.raise_for_status()
-        data = r.json()
-        posts = data.get("data", {}).get("children", [])
+        posts = r.json().get("data", {}).get("children", [])
         for post in posts:
             d     = post.get("data", {})
             title = d.get("title", "")
             desc  = d.get("selftext", "")
-            url   = d.get("url", "")
-            permalink = "https://reddit.com" + d.get("permalink", "")
-            deal  = check_deal(title, desc, url or permalink, source["name"])
+            url   = d.get("url", "") or "https://reddit.com" + d.get("permalink", "")
+            combined = f"{title} {desc}"
+            original, sale = None, None
+            discount = extract_discount(combined)
+            price_match = re.search(r'\$?([\d,]+\.?\d*)\s*[-–→]\s*\$?([\d,]+\.?\d*)', combined)
+            if price_match:
+                original = parse_price(price_match.group(1))
+                sale     = parse_price(price_match.group(2))
+            deal = build_deal(title, url, source["name"], original, sale, discount)
             if deal:
                 deals.append(deal)
     except Exception as e:
-        print(f"Reddit error ({source['name']}): {e}")
+        print(f"  Reddit error ({source['name']}): {e}")
+    return deals
+
+# ── Retailer scrapers ─────────────────────────────────────────────────────────
+
+def scrape_amazon(search_term):
+    deals = []
+    url = f"https://www.amazon.com/s?k={requests.utils.quote(search_term)}&s=price-asc-rank"
+    try:
+        polite_delay()
+        r = requests.get(url, headers=get_headers("https://www.amazon.com"), timeout=20)
+        if r.status_code != 200:
+            print(f"  Amazon blocked ({r.status_code}) for: {search_term}")
+            return deals
+        soup = BeautifulSoup(r.text, "html.parser")
+        items = soup.select('[data-component-type="s-search-result"]')
+        for item in items[:10]:
+            try:
+                title_el = item.select_one("h2 a span")
+                link_el  = item.select_one("h2 a")
+                sale_el  = item.select_one(".a-price .a-offscreen")
+                was_el   = item.select_one(".a-text-price .a-offscreen")
+                badge_el = item.select_one(".savingsPercentage")
+
+                if not title_el or not link_el:
+                    continue
+
+                title    = title_el.get_text(strip=True)
+                link     = "https://www.amazon.com" + link_el.get("href", "").split("?")[0]
+                sale     = parse_price(sale_el.get_text() if sale_el else None)
+                original = parse_price(was_el.get_text() if was_el else None)
+                discount = None
+                if badge_el:
+                    discount = extract_discount(badge_el.get_text())
+
+                deal = build_deal(title, link, "Amazon", original, sale, discount)
+                if deal:
+                    print(f"  Amazon deal: {title[:60]} — {deal['discount']}% off")
+                    deals.append(deal)
+            except:
+                continue
+    except Exception as e:
+        print(f"  Amazon error for '{search_term}': {e}")
+    return deals
+
+def scrape_walmart(search_term):
+    deals = []
+    url = f"https://www.walmart.com/search?q={requests.utils.quote(search_term)}&sort=price_low"
+    try:
+        polite_delay()
+        r = requests.get(url, headers=get_headers("https://www.walmart.com"), timeout=20)
+        if r.status_code != 200:
+            print(f"  Walmart blocked ({r.status_code}) for: {search_term}")
+            return deals
+
+        # Walmart embeds JSON data in a script tag
+        soup = BeautifulSoup(r.text, "html.parser")
+        script = soup.find("script", {"id": "__NEXT_DATA__"})
+        if not script:
+            print(f"  Walmart: no data found for '{search_term}'")
+            return deals
+
+        data = json.loads(script.string)
+        items = (data.get("props", {})
+                     .get("pageProps", {})
+                     .get("initialData", {})
+                     .get("searchResult", {})
+                     .get("itemStacks", [{}])[0]
+                     .get("items", []))
+
+        for item in items[:15]:
+            try:
+                title    = item.get("name", "")
+                sale     = item.get("priceInfo", {}).get("currentPrice", {}).get("price")
+                original = item.get("priceInfo", {}).get("wasPrice", {}).get("price")
+                link     = "https://www.walmart.com" + item.get("canonicalUrl", "")
+                discount = compute_discount(original, sale)
+
+                deal = build_deal(title, link, "Walmart", original, sale, discount)
+                if deal:
+                    print(f"  Walmart deal: {title[:60]} — {deal['discount']}% off")
+                    deals.append(deal)
+            except:
+                continue
+    except Exception as e:
+        print(f"  Walmart error for '{search_term}': {e}")
+    return deals
+
+def scrape_target(search_term):
+    deals = []
+    url = f"https://redsky.target.com/redsky_aggregations/v1/web/plp_search_v2?keyword={requests.utils.quote(search_term)}&count=24&offset=0&channel=WEB&country=US&pricing_store_id=3991"
+    try:
+        polite_delay()
+        headers = get_headers("https://www.target.com")
+        headers["Accept"] = "application/json"
+        r = requests.get(url, headers=headers, timeout=20)
+        if r.status_code != 200:
+            print(f"  Target blocked ({r.status_code}) for: {search_term}")
+            return deals
+
+        data = r.json()
+        items = data.get("data", {}).get("search", {}).get("products", [])
+
+        for item in items[:15]:
+            try:
+                title    = item.get("item", {}).get("product_description", {}).get("title", "")
+                price_info = item.get("price", {})
+                sale     = price_info.get("current_retail")
+                original = price_info.get("reg_retail")
+                tcin     = item.get("item", {}).get("tcin", "")
+                link     = f"https://www.target.com/p/-/A-{tcin}"
+                discount = compute_discount(original, sale)
+
+                deal = build_deal(title, link, "Target", original, sale, discount)
+                if deal:
+                    print(f"  Target deal: {title[:60]} — {deal['discount']}% off")
+                    deals.append(deal)
+            except:
+                continue
+    except Exception as e:
+        print(f"  Target error for '{search_term}': {e}")
+    return deals
+
+def scrape_homedepot(search_term):
+    deals = []
+    url = f"https://www.homedepot.com/s/{requests.utils.quote(search_term)}?sortorder=asc&sortby=price"
+    try:
+        polite_delay()
+        r = requests.get(url, headers=get_headers("https://www.homedepot.com"), timeout=20)
+        if r.status_code != 200:
+            print(f"  Home Depot blocked ({r.status_code}) for: {search_term}")
+            return deals
+
+        soup = BeautifulSoup(r.text, "html.parser")
+
+        # Home Depot embeds product data in a script tag too
+        for script in soup.find_all("script"):
+            text = script.string or ""
+            if "__REDUX_STATE__" in text or "productResults" in text:
+                try:
+                    json_match = re.search(r'window\.__REDUX_STATE__\s*=\s*({.*?});', text, re.DOTALL)
+                    if json_match:
+                        data  = json.loads(json_match.group(1))
+                        prods = (data.get("productSearch", {})
+                                     .get("productSearchResult", {})
+                                     .get("products", []))
+                        for prod in prods[:15]:
+                            try:
+                                title    = prod.get("modelIdentifier", "") + " " + prod.get("productLabel", "")
+                                sale     = prod.get("pricing", {}).get("value")
+                                original = prod.get("pricing", {}).get("original")
+                                item_id  = prod.get("itemId", "")
+                                link     = f"https://www.homedepot.com/p/{item_id}"
+                                discount = compute_discount(original, sale)
+                                deal = build_deal(title.strip(), link, "Home Depot", original, sale, discount)
+                                if deal:
+                                    print(f"  Home Depot deal: {title[:60]} — {deal['discount']}% off")
+                                    deals.append(deal)
+                            except:
+                                continue
+                except:
+                    pass
+    except Exception as e:
+        print(f"  Home Depot error for '{search_term}': {e}")
+    return deals
+
+def scrape_newegg(search_term):
+    deals = []
+    url = f"https://www.newegg.com/p/pl?d={requests.utils.quote(search_term)}&Order=1"
+    try:
+        polite_delay()
+        r = requests.get(url, headers=get_headers("https://www.newegg.com"), timeout=20)
+        if r.status_code != 200:
+            print(f"  Newegg blocked ({r.status_code}) for: {search_term}")
+            return deals
+
+        soup = BeautifulSoup(r.text, "html.parser")
+        items = soup.select(".item-cell")
+
+        for item in items[:15]:
+            try:
+                title_el   = item.select_one(".item-title")
+                sale_el    = item.select_one(".price-current")
+                was_el     = item.select_one(".price-was-data")
+                link_el    = item.select_one(".item-title")
+                discount_el= item.select_one(".price-save-percent")
+
+                if not title_el:
+                    continue
+
+                title    = title_el.get_text(strip=True)
+                link     = title_el.get("href", "") if title_el.name == "a" else (link_el.get("href", "") if link_el else "")
+                sale     = parse_price(sale_el.get_text() if sale_el else None)
+                original = parse_price(was_el.get_text() if was_el else None)
+                discount = extract_discount(discount_el.get_text() if discount_el else "")
+
+                deal = build_deal(title, link, "Newegg", original, sale, discount)
+                if deal:
+                    print(f"  Newegg deal: {title[:60]} — {deal['discount']}% off")
+                    deals.append(deal)
+            except:
+                continue
+    except Exception as e:
+        print(f"  Newegg error for '{search_term}': {e}")
+    return deals
+
+def scrape_bestbuy(search_term):
+    deals = []
+    url = f"https://www.bestbuy.com/site/searchpage.jsp?st={requests.utils.quote(search_term)}&sort=pricelow"
+    try:
+        polite_delay()
+        r = requests.get(url, headers=get_headers("https://www.bestbuy.com"), timeout=20)
+        if r.status_code != 200:
+            print(f"  Best Buy blocked ({r.status_code}) for: {search_term}")
+            return deals
+
+        soup = BeautifulSoup(r.text, "html.parser")
+        items = soup.select(".sku-item")
+
+        for item in items[:15]:
+            try:
+                title_el    = item.select_one(".sku-title a")
+                sale_el     = item.select_one(".priceView-customer-price span")
+                was_el      = item.select_one(".pricing-price__regular-price")
+                savings_el  = item.select_one(".pricing-price__savings-percentage")
+
+                if not title_el:
+                    continue
+
+                title    = title_el.get_text(strip=True)
+                link     = "https://www.bestbuy.com" + title_el.get("href", "")
+                sale     = parse_price(sale_el.get_text() if sale_el else None)
+                original = parse_price(was_el.get_text() if was_el else None)
+                discount = extract_discount(savings_el.get_text() if savings_el else "")
+
+                deal = build_deal(title, link, "Best Buy", original, sale, discount)
+                if deal:
+                    print(f"  Best Buy deal: {title[:60]} — {deal['discount']}% off")
+                    deals.append(deal)
+            except:
+                continue
+    except Exception as e:
+        print(f"  Best Buy error for '{search_term}': {e}")
     return deals
 
 # ── Notifier ──────────────────────────────────────────────────────────────────
 
 def send_pushover(deal):
     if not PUSHOVER_USER_KEY or not PUSHOVER_TOKEN:
-        print("Pushover keys not set — skipping notification")
+        print("  Pushover keys not set — skipping")
         return
 
     original_str = f"${deal['original']:.2f}" if deal['original'] else "?"
     sale_str     = f"${deal['sale']:.2f}"     if deal['sale']     else "?"
+    price_line   = f"{original_str} → {sale_str}" if deal['original'] and deal['sale'] else ""
 
-    if deal['original'] and deal['sale']:
-        price_line = f"{original_str} → {sale_str}"
-    else:
-        price_line = ""
+    is_glitch = deal['discount'] >= 90 and deal.get('original', 0) and deal['original'] >= 100
+    title_prefix = "⚡ GLITCH PRICE" if is_glitch else "🏷 Deal Alert"
 
     message = (
-        f"🏷 {deal['discount']}% OFF\n"
-        f"{price_line}\n"
+        f"{deal['discount']}% OFF  {price_line}\n"
         f"📂 {deal['category'].title()}\n"
-        f"🔗 {deal['source']}"
+        f"🏪 {deal['source']}"
     ).strip()
 
     payload = {
-        "token":   PUSHOVER_TOKEN,
-        "user":    PUSHOVER_USER_KEY,
-        "title":   deal["title"][:100],
-        "message": message,
-        "url":     deal["url"],
+        "token":     PUSHOVER_TOKEN,
+        "user":      PUSHOVER_USER_KEY,
+        "title":     f"{title_prefix}: {deal['title'][:80]}",
+        "message":   message,
+        "url":       deal["url"],
         "url_title": "View Deal",
-        "priority": 0,
-        "sound":   "cashregister"
+        "priority":  1 if is_glitch else 0,
+        "sound":     "cashregister",
     }
 
     try:
         r = requests.post("https://api.pushover.net/1/messages.json", data=payload, timeout=10)
         r.raise_for_status()
-        print(f"Notified: {deal['title'][:60]}")
+        print(f"  Notified: {deal['title'][:60]}")
     except Exception as e:
-        print(f"Pushover error: {e}")
+        print(f"  Pushover error: {e}")
 
-# ── Deal log (for the web app) ────────────────────────────────────────────────
+# ── Deal log ──────────────────────────────────────────────────────────────────
 
 def update_deals_log(new_deals):
     log_file = "data/deals.json"
@@ -275,11 +529,7 @@ def update_deals_log(new_deals):
             existing = json.load(f)
     except:
         existing = []
-
-    # prepend new deals, keep last 200
-    combined = new_deals + existing
-    combined = combined[:200]
-
+    combined = (new_deals + existing)[:200]
     os.makedirs("data", exist_ok=True)
     with open(log_file, "w") as f:
         json.dump(combined, f, indent=2)
@@ -291,30 +541,54 @@ def main():
     seen = load_seen_deals()
     all_new_deals = []
 
-    for source in SOURCES:
+    # ── RSS + Reddit
+    for source in RSS_SOURCES:
         print(f"Checking {source['name']}...")
         if source["type"] == "rss":
             deals = fetch_rss(source)
-        elif source["type"] == "reddit":
-            deals = fetch_reddit(source)
         else:
-            deals = []
-
+            deals = fetch_reddit(source)
         for deal in deals:
             did = deal_id(deal["title"], deal["url"])
             if did not in seen:
                 seen.add(did)
                 all_new_deals.append(deal)
-                print(f"  NEW DEAL ({deal['discount']}% off): {deal['title'][:60]}")
+                print(f"  NEW: {deal['title'][:60]} ({deal['discount']}% off)")
                 send_pushover(deal)
-            else:
-                print(f"  Already seen: {deal['title'][:60]}")
+
+    # ── Retailer scrapers
+    retailers = [
+        ("Amazon",    scrape_amazon),
+        ("Walmart",   scrape_walmart),
+        ("Target",    scrape_target),
+        ("Home Depot",scrape_homedepot),
+        ("Newegg",    scrape_newegg),
+        ("Best Buy",  scrape_bestbuy),
+    ]
+
+    for retailer_name, scraper_fn in retailers:
+        print(f"\nScraping {retailer_name}...")
+        # rotate through a subset of search terms each run to stay under the radar
+        terms = random.sample(SEARCH_TERMS, min(4, len(SEARCH_TERMS)))
+        for term in terms:
+            print(f"  Searching: {term}")
+            try:
+                deals = scraper_fn(term)
+                for deal in deals:
+                    did = deal_id(deal["title"], deal["url"])
+                    if did not in seen:
+                        seen.add(did)
+                        all_new_deals.append(deal)
+                        send_pushover(deal)
+            except Exception as e:
+                print(f"  Error scraping {retailer_name} for '{term}': {e}")
+            polite_delay()
 
     if all_new_deals:
         update_deals_log(all_new_deals)
 
     save_seen_deals(seen)
-    print(f"Done. {len(all_new_deals)} new deals found.")
+    print(f"\nDone. {len(all_new_deals)} new deals found.")
 
 if __name__ == "__main__":
     main()
