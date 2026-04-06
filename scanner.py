@@ -522,13 +522,62 @@ def send_pushover(deal):
 
 # ── Deal log ──────────────────────────────────────────────────────────────────
 
-def update_deals_log(new_deals):
+# How long to keep deals before expiring them
+DEAL_EXPIRY_HOURS = {
+    "glitch":      2,    # glitch prices disappear fast — remove after 2 hours
+    "retailer":    24,   # direct retailer scrapes — remove after 24 hours
+    "rss":         48,   # RSS/Reddit deals — keep 48 hours
+}
+
+RETAILER_SOURCES = {"Amazon", "Walmart", "Target", "Home Depot", "Newegg", "Best Buy"}
+
+def is_expired(deal):
+    """Return True if the deal is too old to show."""
+    try:
+        found = datetime.fromisoformat(deal["found_at"])
+        age_hours = (datetime.utcnow() - found).total_seconds() / 3600
+
+        is_glitch   = deal.get("discount", 0) >= 90 and deal.get("original", 0) >= 100
+        is_retailer = deal.get("source", "") in RETAILER_SOURCES
+
+        if is_glitch:
+            return age_hours > DEAL_EXPIRY_HOURS["glitch"]
+        elif is_retailer:
+            return age_hours > DEAL_EXPIRY_HOURS["retailer"]
+        else:
+            return age_hours > DEAL_EXPIRY_HOURS["rss"]
+    except:
+        return False
+
+def update_deals_log(new_deals, active_urls=None):
+    """Merge new deals in, expire old ones, optionally remove deals no longer seen."""
     log_file = "data/deals.json"
     try:
         with open(log_file, "r") as f:
             existing = json.load(f)
     except:
         existing = []
+
+    # Remove expired deals
+    before = len(existing)
+    existing = [d for d in existing if not is_expired(d)]
+    expired_count = before - len(existing)
+    if expired_count:
+        print(f"  Removed {expired_count} expired deal(s)")
+
+    # Remove retailer deals whose URL was scanned this run but price no longer qualifies
+    if active_urls is not None:
+        scanned_sources = {d.get("source") for d in new_deals if d.get("source") in RETAILER_SOURCES}
+        before = len(existing)
+        existing = [
+            d for d in existing
+            if not (d.get("source") in scanned_sources and d.get("url") not in active_urls)
+        ]
+        removed = before - len(existing)
+        if removed:
+            print(f"  Removed {removed} deal(s) no longer at discount price")
+
+    # Merge — new deals go to the top, keep max 200
     combined = (new_deals + existing)[:200]
     os.makedirs("data", exist_ok=True)
     with open(log_file, "w") as f:
@@ -540,6 +589,7 @@ def main():
     print(f"[{datetime.utcnow().isoformat()}] Deal scanner starting...")
     seen = load_seen_deals()
     all_new_deals = []
+    active_urls   = set()  # tracks every URL that qualified this run
 
     # ── RSS + Reddit
     for source in RSS_SOURCES:
@@ -558,23 +608,23 @@ def main():
 
     # ── Retailer scrapers
     retailers = [
-        ("Amazon",    scrape_amazon),
-        ("Walmart",   scrape_walmart),
-        ("Target",    scrape_target),
-        ("Home Depot",scrape_homedepot),
-        ("Newegg",    scrape_newegg),
-        ("Best Buy",  scrape_bestbuy),
+        ("Amazon",     scrape_amazon),
+        ("Walmart",    scrape_walmart),
+        ("Target",     scrape_target),
+        ("Home Depot", scrape_homedepot),
+        ("Newegg",     scrape_newegg),
+        ("Best Buy",   scrape_bestbuy),
     ]
 
     for retailer_name, scraper_fn in retailers:
         print(f"\nScraping {retailer_name}...")
-        # rotate through a subset of search terms each run to stay under the radar
         terms = random.sample(SEARCH_TERMS, min(4, len(SEARCH_TERMS)))
         for term in terms:
             print(f"  Searching: {term}")
             try:
                 deals = scraper_fn(term)
                 for deal in deals:
+                    active_urls.add(deal["url"])  # track every qualifying URL
                     did = deal_id(deal["title"], deal["url"])
                     if did not in seen:
                         seen.add(did)
@@ -584,9 +634,8 @@ def main():
                 print(f"  Error scraping {retailer_name} for '{term}': {e}")
             polite_delay()
 
-    if all_new_deals:
-        update_deals_log(all_new_deals)
-
+    # Update log — passes active_urls so stale retailer deals get removed
+    update_deals_log(all_new_deals, active_urls=active_urls)
     save_seen_deals(seen)
     print(f"\nDone. {len(all_new_deals)} new deals found.")
 
