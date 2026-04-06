@@ -2,7 +2,7 @@ name: Deal Scanner
 
 on:
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '*/5 * * * *'   # every 5 minutes
   workflow_dispatch:
 
 permissions:
