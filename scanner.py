@@ -16,12 +16,31 @@ from datetime import datetime
 PUSHOVER_USER_KEY  = os.environ.get("PUSHOVER_USER_KEY", "")
 PUSHOVER_TOKEN     = os.environ.get("PUSHOVER_TOKEN", "")
 MIN_DISCOUNT       = 80  # minimum % off to trigger notification
+
+# Minimum ORIGINAL price — filters out cheap junk (e.g. $5 item at 80% off)
+MIN_ORIGINAL_PRICE = {
+    "flipping":    500,   # TVs, furniture, appliances must be $500+ retail
+    "electronics": 50,    # laptops, phones etc must be $50+ retail
+    "gaming":      30,    # games/accessories must be $30+ retail
+    "clothing":    40,    # clothing must be $40+ retail
+    "general":     20,    # anything else must be $20+ retail
+}
+
+# Minimum SALE price — the deal itself must still be worth something
+MIN_SALE_PRICE = {
+    "flipping":    10,
+    "electronics": 5,
+    "gaming":      5,
+    "clothing":    5,
+    "general":     3,
+}
 SEEN_DEALS_FILE    = "data/seen_deals.json"
 
 CATEGORIES = {
-    "electronics": ["electronics", "laptop", "phone", "tv", "camera", "tablet", "headphone", "monitor", "keyboard", "mouse", "speaker", "console", "gpu", "cpu", "ssd", "hard drive"],
+    "flipping":    ["tv", "television", "sofa", "couch", "furniture", "mattress", "refrigerator", "fridge", "washer", "dryer", "dishwasher", "oven", "range", "microwave", "vacuum", "dyson", "robot vacuum", "air purifier", "dehumidifier", "generator", "power tool", "dewalt", "milwaukee", "makita", "table saw", "drill", "compressor", "lawnmower", "lawn mower", "pressure washer", "treadmill", "elliptical", "exercise bike", "desk", "office chair", "bookshelf", "dresser", "nightstand", "bed frame", "recliner", "sectional"],
+    "electronics": ["electronics", "laptop", "phone", "camera", "tablet", "headphone", "monitor", "keyboard", "mouse", "speaker", "console", "gpu", "cpu", "ssd", "hard drive", "smartwatch", "projector", "printer"],
     "clothing":    ["clothing", "shoes", "shirt", "pants", "jacket", "boots", "sneakers", "dress", "hoodie", "coat", "apparel", "fashion"],
-    "gaming":      ["gaming", "game", "xbox", "playstation", "nintendo", "steam", "ps5", "ps4", "switch", "controller", "gpu", "graphics card"],
+    "gaming":      ["gaming", "game", "xbox", "playstation", "nintendo", "steam", "ps5", "ps4", "switch", "controller", "graphics card"],
     "general":     []  # catches everything else
 }
 
@@ -139,6 +158,20 @@ def check_deal(title, description, url, source):
         return None
 
     category = categorize(title, description)
+
+    # flipping category requires 90%+ off
+    if category == "flipping" and discount < 90:
+        return None
+
+    # enforce minimum original price — ignore cheap junk
+    min_orig = MIN_ORIGINAL_PRICE.get(category, 20)
+    if original and original < min_orig:
+        return None
+
+    # enforce minimum sale price — deal must still be worth something
+    min_sale = MIN_SALE_PRICE.get(category, 3)
+    if sale and sale < min_sale:
+        return None
 
     return {
         "title":    title.strip(),
