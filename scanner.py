@@ -1,9 +1,3 @@
-#!/usr/bin/env python3
-“””
-Deal Scanner - Finds 80%+ off deals and notifies via Pushover
-Sources: Slickdeals, DealNews RSS, Reddit RSS, Amazon, Walmart, Newegg
-“””
-
 import requests
 import json
 import os
