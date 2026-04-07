@@ -15,7 +15,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 from bs4 import BeautifulSoup
 
-# ── Config ────────────────────────────────────────────────────────────────────
+# – Config ––––––––––––––––––––––––––––––––––
 
 PUSHOVER_USER_KEY = os.environ.get(“PUSHOVER_USER_KEY”, “”)
 PUSHOVER_TOKEN    = os.environ.get(“PUSHOVER_TOKEN”, “”)
@@ -84,7 +84,7 @@ CATEGORIES = {
 “general”: []
 }
 
-# RSS sources — Reddit via .rss which doesn’t require auth
+# RSS sources - Reddit via .rss which doesn’t require auth
 
 RSS_SOURCES = [
 {“name”: “Slickdeals”,                    “url”: “https://slickdeals.net/newsearch.php?mode=frontpage&searcharea=deals&searchin=first&rss=1”},
@@ -137,7 +137,7 @@ return {
 def polite_delay():
 time.sleep(random.uniform(2.0, 4.0))
 
-# ── Helpers ───────────────────────────────────────────────────────────────────
+# – Helpers —————————————————————––
 
 def load_seen_deals():
 try:
@@ -229,7 +229,7 @@ return {
 }
 ```
 
-# ── RSS fetcher (handles RSS and Atom) ───────────────────────────────────────
+# – RSS fetcher (handles RSS and Atom) —————————————
 
 def fetch_rss(source):
 deals = []
@@ -274,7 +274,7 @@ root = ET.fromstring(r.content)
             original = parse_price(price_match.group(1))
             sale     = parse_price(price_match.group(2))
         else:
-            arrow = re.search(r'\$?([\d,]+\.?\d*)\s*[-–→]+\s*\$?([\d,]+\.?\d*)', combined)
+            arrow = re.search(r'\$?([\d,]+\.?\d*)\s*[--->]+\s*\$?([\d,]+\.?\d*)', combined)
             if arrow:
                 original = parse_price(arrow.group(1))
                 sale     = parse_price(arrow.group(2))
@@ -287,7 +287,7 @@ except Exception as e:
 return deals
 ```
 
-# ── Browser session factory ───────────────────────────────────────────────────
+# – Browser session factory —————————————————
 
 def make_session(base_url):
 “”“Create a requests session that looks like a real browser visiting from Google.”””
@@ -308,14 +308,14 @@ session.headers.update({
 “Sec-CH-UA-Platform”: ‘“Windows”’,
 })
 try:
-# Visit homepage first to get cookies — makes us look like a real user
+# Visit homepage first to get cookies - makes us look like a real user
 session.get(base_url, timeout=15)
 polite_delay()
 except:
 pass
 return session
 
-# ── Retailer scrapers ─────────────────────────────────────────────────────────
+# – Retailer scrapers ———————————————————
 
 def scrape_amazon(search_term):
 deals = []
@@ -347,7 +347,7 @@ original = parse_price(was_el.get_text() if was_el else None)
 discount = extract_discount(badge_el.get_text() if badge_el else “”)
 deal = build_deal(title, link, “Amazon”, original, sale, discount)
 if deal:
-print(f”  Amazon deal: {title[:60]} — {deal[‘discount’]}% off”)
+print(f”  Amazon deal: {title[:60]} - {deal[‘discount’]}% off”)
 deals.append(deal)
 except:
 continue
@@ -398,7 +398,7 @@ return deals
                 discount = compute_discount(original, sale)
                 deal = build_deal(names[i], link, "Walmart", original, sale, discount)
                 if deal:
-                    print(f"  Walmart deal: {names[i][:60]} — {deal['discount']}% off")
+                    print(f"  Walmart deal: {names[i][:60]} - {deal['discount']}% off")
                     deals.append(deal)
             except:
                 continue
@@ -420,7 +420,7 @@ return deals
             discount = compute_discount(original, sale)
             deal = build_deal(title, link, "Walmart", original, sale, discount)
             if deal:
-                print(f"  Walmart deal: {title[:60]} — {deal['discount']}% off")
+                print(f"  Walmart deal: {title[:60]} - {deal['discount']}% off")
                 deals.append(deal)
         except:
             continue
@@ -461,7 +461,7 @@ link       = f”https://www.target.com/p/-/A-{tcin}”
 discount   = compute_discount(original, sale)
 deal = build_deal(title, link, “Target”, original, sale, discount)
 if deal:
-print(f”  Target deal: {title[:60]} — {deal[‘discount’]}% off”)
+print(f”  Target deal: {title[:60]} - {deal[‘discount’]}% off”)
 deals.append(deal)
 except:
 continue
@@ -503,7 +503,7 @@ original = parse_price(was_el.get_text() if was_el else None)
 discount = extract_discount(savings_el.get_text() if savings_el else “”)
 deal = build_deal(title, link, “Best Buy”, original, sale, discount)
 if deal:
-print(f”  Best Buy deal: {title[:60]} — {deal[‘discount’]}% off”)
+print(f”  Best Buy deal: {title[:60]} - {deal[‘discount’]}% off”)
 deals.append(deal)
 except:
 continue
@@ -543,7 +543,7 @@ link     = f”https://www.homedepot.com/p/{item_id}”
 discount = compute_discount(original, sale)
 deal = build_deal(title, link, “Home Depot”, original, sale, discount)
 if deal:
-print(f”  Home Depot deal: {title[:60]} — {deal[‘discount’]}% off”)
+print(f”  Home Depot deal: {title[:60]} - {deal[‘discount’]}% off”)
 deals.append(deal)
 except:
 continue
@@ -582,7 +582,7 @@ original = parse_price(was_el.get_text() if was_el else None)
 discount = extract_discount(discount_el.get_text() if discount_el else “”)
 deal = build_deal(title, link, “Newegg”, original, sale, discount)
 if deal:
-print(f”  Newegg deal: {title[:60]} — {deal[‘discount’]}% off”)
+print(f”  Newegg deal: {title[:60]} - {deal[‘discount’]}% off”)
 deals.append(deal)
 except:
 continue
@@ -590,7 +590,7 @@ except Exception as e:
 print(f”  Newegg error for ‘{search_term}’: {e}”)
 return deals
 
-# ── Notifier ──────────────────────────────────────────────────────────────────
+# – Notifier ——————————————————————
 
 def should_notify(deal):
 return deal.get(‘glitch’, False) or deal.get(‘category’) == ‘flipping’
@@ -599,11 +599,11 @@ def send_pushover(deal):
 if not PUSHOVER_USER_KEY or not PUSHOVER_TOKEN:
 return
 is_glitch    = deal.get(‘glitch’, False)
-title_prefix = “⚡ GLITCH PRICE” if is_glitch else “💰 Flipper Deal”
+title_prefix = “ GLITCH PRICE” if is_glitch else “Flipper Deal”
 original_str = f”${deal[‘original’]:.2f}” if deal[‘original’] else “?”
 sale_str     = f”${deal[‘sale’]:.2f}”     if deal[‘sale’]     else “?”
-price_line   = f”{original_str} → {sale_str}” if deal[‘original’] and deal[‘sale’] else “”
-message = f”{deal[‘discount’]}% OFF  {price_line}\n📂 {deal[‘category’].title()}\n🏪 {deal[‘source’]}”.strip()
+price_line   = f”{original_str} -> {sale_str}” if deal[‘original’] and deal[‘sale’] else “”
+message = f”{deal[‘discount’]}% OFF  {price_line}\nCat: {deal[‘category’].title()}\nStore: {deal[‘source’]}”.strip()
 payload = {
 “token”:     PUSHOVER_TOKEN,
 “user”:      PUSHOVER_USER_KEY,
@@ -621,7 +621,7 @@ print(f”  Notified: {deal[‘title’][:60]}”)
 except Exception as e:
 print(f”  Pushover error: {e}”)
 
-# ── Deal log ──────────────────────────────────────────────────────────────────
+# – Deal log ——————————————————————
 
 DEAL_EXPIRY_HOURS = {“glitch”: 2, “retailer”: 24, “rss”: 48}
 RETAILER_SOURCES  = {“Amazon”, “Walmart”, “Newegg”}
@@ -662,7 +662,7 @@ with open(log_file, "w") as f:
     json.dump(combined, f, indent=2)
 ```
 
-# ── Main ──────────────────────────────────────────────────────────────────────
+# – Main –––––––––––––––––––––––––––––––––––
 
 def main():
 print(f”[{datetime.utcnow().isoformat()}] Deal scanner starting…”)
