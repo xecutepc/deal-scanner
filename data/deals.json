@@ -1,5 +1,17 @@
 [
   {
+    "title": "JCPenney Clearance Sale: Select Apparel, Shoes, Toys, Home Decor & More Up to 80% Off + Free S&H on $49+",
+    "url": "https://slickdeals.net/f/19425003-jc-penney-up-to-80-off-clearance-now?utm_source=rss&utm_content=fp&utm_medium=RSS2",
+    "source": "Slickdeals",
+    "discount": 80,
+    "original": null,
+    "sale": null,
+    "category": "clothing",
+    "glitch": false,
+    "hot": false,
+    "found_at": "2026-04-18T17:05:59.339585"
+  },
+  {
     "title": "Prime Members: Heycool Cordless Neck & Shoulder Massager w/ Heat $20 + Free S&H",
     "url": "https://slickdeals.net/f/19431414-prime-heycool-cordless-neck-and-shoulder-massager-w-heat-hy-6g2-2-19-99-free-shipping?utm_source=rss&utm_content=fp&utm_medium=RSS2",
     "source": "Slickdeals",
@@ -430,65 +442,5 @@
     "glitch": false,
     "hot": true,
     "found_at": "2026-04-16T20:03:18.425525"
-  },
-  {
-    "title": "Refurb Smart Watch Deals at eBay: Up to 71% off + extra 20% off + free shipping",
-    "url": "https://www.dealnews.com/Refurb-Smart-Watch-Deals-at-eBay-Up-to-71-off-extra-20-off-free-shipping/21822323.html?iref=rss-c142",
-    "source": "DealNews Electronics",
-    "discount": 71,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-04-16T16:10:50.724223"
-  },
-  {
-    "title": "Refurb TV & Projector Deals at eBay: Up to 67% off + extra 20% off + free shipping",
-    "url": "https://www.dealnews.com/Refurb-TV-Projector-Deals-at-eBay-Up-to-67-off-extra-20-off-free-shipping/21822307.html?iref=rss-c142",
-    "source": "DealNews Electronics",
-    "discount": 67,
-    "original": null,
-    "sale": null,
-    "category": "flipping",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-04-16T16:10:50.724379"
-  },
-  {
-    "title": "Refurb Smartphone Deals at eBay: Up to 68% off + extra 20% off + free shipping",
-    "url": "https://www.dealnews.com/Refurb-Smartphone-Deals-at-eBay-Up-to-68-off-extra-20-off-free-shipping/21822302.html?iref=rss-c142",
-    "source": "DealNews Electronics",
-    "discount": 68,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-04-16T16:10:50.724644"
-  },
-  {
-    "title": "Refurb Laptop Deals at eBay: Up to 50% off + extra 20% off + free shipping",
-    "url": "https://www.dealnews.com/Refurb-Laptop-Deals-at-eBay-Up-to-50-off-extra-20-off-free-shipping/21822331.html?iref=rss-c39",
-    "source": "DealNews Computers",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "electronics",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-04-16T16:10:51.861652"
-  },
-  {
-    "title": "Refurb Dyson Deals at eBay: Up to 61% off + extra 20% off + free shipping",
-    "url": "https://www.dealnews.com/Refurb-Dyson-Deals-at-eBay-Up-to-61-off-extra-20-off-free-shipping/21822355.html?iref=rss-c304",
-    "source": "DealNews Sports",
-    "discount": 61,
-    "original": null,
-    "sale": null,
-    "category": "flipping",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-04-16T16:10:54.716226"
   }
 ]
