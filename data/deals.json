@@ -1,5 +1,77 @@
 [
   {
+    "title": "Domino's Pizza: Any Pizza at Menu Price 50% Off (Valid 4/20 - 4/26 for Online Purchase Only)",
+    "url": "https://slickdeals.net/f/19440183-dominos-50-off-all-menu-pizzas-to-4-26?utm_source=rss&utm_content=fp&utm_medium=RSS2",
+    "source": "Slickdeals",
+    "discount": 50,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-04-20T20:04:40.582786"
+  },
+  {
+    "title": "[Prime] Fssvcd Maifan Stainless Steel Self Drain Tray Sink Caddy $4.99 + Free Shipping",
+    "url": "https://slickdeals.net/f/19441329-prime-fssvcd-maifan-stainless-steel-self-drain-tray-sink-caddy-4-99-free-shipping?utm_source=rss&utm_content=ht&utm_medium=RSS2",
+    "source": "Slickdeals Hot",
+    "discount": 50,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-04-20T20:04:41.233217"
+  },
+  {
+    "title": "Refurb Apple iPhone Deals at eBay: Up to 72% off + extra 20% off + free shipping",
+    "url": "https://www.dealnews.com/Refurb-Apple-iPhone-Deals-at-eBay-Up-to-72-off-extra-20-off-free-shipping/21823030.html?iref=rss-c142",
+    "source": "DealNews Electronics",
+    "discount": 72,
+    "original": null,
+    "sale": null,
+    "category": "electronics",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-04-20T20:04:42.013858"
+  },
+  {
+    "title": "Refurb Anker Deals at eBay: Up to 64% off + extra 20% off + free shipping",
+    "url": "https://www.dealnews.com/Refurb-Anker-Deals-at-eBay-Up-to-64-off-extra-20-off-free-shipping/21823028.html?iref=rss-c142",
+    "source": "DealNews Electronics",
+    "discount": 64,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-04-20T20:04:42.013973"
+  },
+  {
+    "title": "FastestVPN Pro 15-Device Lifetime Subscription for $40",
+    "url": "https://www.dealnews.com/Fastest-VPN-Pro-15-Device-Lifetime-Subscription-for-40/21823005.html?iref=rss-c39",
+    "source": "DealNews Computers",
+    "discount": 93,
+    "original": null,
+    "sale": null,
+    "category": "flipping",
+    "glitch": false,
+    "hot": false,
+    "found_at": "2026-04-20T20:04:42.695150"
+  },
+  {
+    "title": "Vinauo LED Boat Trailer Light Kit for $20 + free shipping w/ Prime",
+    "url": "https://www.dealnews.com/Vinauo-LED-Boat-Trailer-Light-Kit-for-20-free-shipping-w-Prime/21823037.html?iref=rss-c238",
+    "source": "DealNews Home",
+    "discount": 50,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-04-20T20:04:43.802011"
+  },
+  {
     "title": "7L Frienhund Timed / Programmable Automatic Cat Feeder w/ 2x Bowls $21 & More + Free S&H",
     "url": "https://slickdeals.net/f/19380471-7l-frienhund-timed-programmable-automatic-cat-feeder-w-2x-bowls-21-more-free-s-h?utm_source=rss&utm_content=fp&utm_medium=RSS2",
     "source": "Slickdeals",
@@ -250,29 +322,5 @@
     "glitch": false,
     "hot": true,
     "found_at": "2026-04-18T21:51:32.185632"
-  },
-  {
-    "title": "24-Ct 100-Sheet Post-it Notes (1-3/8\" x 1-7/8\") $7.35",
-    "url": "https://slickdeals.net/f/19429614-24-ct-100-sheet-post-it-notes-1-3-8-x-1-7-8-7-35?utm_source=rss&utm_content=fp&utm_medium=RSS2",
-    "source": "Slickdeals",
-    "discount": 62,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-04-18T19:50:40.861101"
-  },
-  {
-    "title": "JCPenney Clearance Sale: Select Apparel, Shoes, Toys, Home Decor & More Up to 80% Off + Free S&H on $49+",
-    "url": "https://slickdeals.net/f/19425003-jc-penney-up-to-80-off-clearance-now?utm_source=rss&utm_content=fp&utm_medium=RSS2",
-    "source": "Slickdeals",
-    "discount": 80,
-    "original": null,
-    "sale": null,
-    "category": "clothing",
-    "glitch": false,
-    "hot": false,
-    "found_at": "2026-04-18T17:05:59.339585"
   }
 ]
