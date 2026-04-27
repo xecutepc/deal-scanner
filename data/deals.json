@@ -1,5 +1,53 @@
 [
   {
+    "title": "Woot! Overstock Items Buy 6, Save 60% + Free S&H w/ Prime",
+    "url": "https://slickdeals.net/f/19465728-extra-60-off-on-overstock-deals-at-woot?utm_source=rss&utm_content=fp&utm_medium=RSS2",
+    "source": "Slickdeals",
+    "discount": 60,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-04-27T19:59:29.472181"
+  },
+  {
+    "title": "New Balance WRPD Runner Shoes $40 + Free S&H on $99+",
+    "url": "https://slickdeals.net/f/19464762-new-balance-men-s-or-women-s-wrpd-runner-shoes-40-free-shipping-on-99?utm_source=rss&utm_content=fp&utm_medium=RSS2",
+    "source": "Slickdeals",
+    "discount": 50,
+    "original": null,
+    "sale": null,
+    "category": "clothing",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-04-27T19:59:29.472320"
+  },
+  {
+    "title": "New Balance Women's Fresh Foam X 860v13 shoes $45 + Free Shipping on $99+",
+    "url": "https://slickdeals.net/f/19465083-new-balance-women-s-fresh-foam-x-860v13-shoes-45-free-shipping-on-99?utm_source=rss&utm_content=ht&utm_medium=RSS2",
+    "source": "Slickdeals Hot",
+    "discount": 50,
+    "original": null,
+    "sale": null,
+    "category": "clothing",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-04-27T19:59:30.141636"
+  },
+  {
+    "title": "Newegg Mega Markdown Clearance Event: Up to 69% off + free shipping",
+    "url": "https://www.dealnews.com/Newegg-Mega-Markdown-Clearance-Event-Up-to-69-off-free-shipping/21824465.html?iref=rss-c142",
+    "source": "DealNews Electronics",
+    "discount": 69,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-04-27T19:59:30.712100"
+  },
+  {
     "title": "New Balance Men's or Women's WRPD Runner shoes $40 + Free Shipping on $99+",
     "url": "https://slickdeals.net/f/19464762-new-balance-men-s-or-women-s-wrpd-runner-shoes-40-free-shipping-on-99?utm_source=rss&utm_content=ht&utm_medium=RSS2",
     "source": "Slickdeals Hot",
@@ -238,53 +286,5 @@
     "glitch": false,
     "hot": true,
     "found_at": "2026-04-25T22:03:59.341567"
-  },
-  {
-    "title": "Gap Women's Relaxed Puffer Jacket $24 + Free Shipping",
-    "url": "https://slickdeals.net/f/19451907-gap-women-s-relaxed-puffer-jacket-24-free-shipping?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 60,
-    "original": null,
-    "sale": null,
-    "category": "clothing",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-04-25T20:07:01.769284"
-  },
-  {
-    "title": "[Travelzoo Members] Hilton Vallarta Riviera All Inclusive Resort 3-Night Stay For 2 In Upgraded Room, Meals, Drinks, $50 Spa Credit, Kids Free & More $999 (Travel Thru Dec 2026)",
-    "url": "https://slickdeals.net/f/19452672-travelzoo-members-hilton-vallarta-riviera-all-inclusive-resort-3-night-stay-for-2-in-upgraded-room-meals-drinks-50-spa-credit-kids-free-more-999-travel-thru-dec-2026?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-04-25T18:07:40.033499"
-  },
-  {
-    "title": "104-Piece Craftsman 1/4\" & 3/8\" Drive SAE Mechanics Tool Set $80 + Free S&H",
-    "url": "https://slickdeals.net/f/19458510-104-piece-craftsman-mechanics-tool-set-79-98-at-ace-hardware-w-free-store-pickup?utm_source=rss&utm_content=fp&utm_medium=RSS2",
-    "source": "Slickdeals",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-04-25T16:08:23.884211"
-  },
-  {
-    "title": "Extra 70% Off Premium Energy Shot 24 Pack (Energy Shot, Vitamin Energy, And More) - from $10.26 AC + S&S",
-    "url": "https://slickdeals.net/f/19458255-extra-70-off-premium-energy-shot-24-pack-energy-shot-vitamin-energy-and-more-from-10-26-ac-s-s?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 70,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-04-25T16:08:24.685192"
   }
 ]
