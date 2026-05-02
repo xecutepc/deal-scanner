@@ -214,41 +214,5 @@
     "glitch": false,
     "hot": true,
     "found_at": "2026-04-30T15:29:17.575540"
-  },
-  {
-    "title": "Microsoft Deals at Woot: Up to 79% off + free shipping w/ Prime",
-    "url": "https://www.dealnews.com/Microsoft-Deals-at-Woot-Up-to-79-off-free-shipping-w-Prime/21825016.html?iref=rss-c39",
-    "source": "DealNews Computers",
-    "discount": 79,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-04-30T08:39:28.297159"
-  },
-  {
-    "title": "Microsoft Spring Black Friday Deals at StackSocial: Up to 98% off",
-    "url": "https://www.dealnews.com/Microsoft-Spring-Black-Friday-Deals-at-Stack-Social-Up-to-98-off/21825002.html?iref=rss-c39",
-    "source": "DealNews Computers",
-    "discount": 98,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": false,
-    "found_at": "2026-04-30T08:39:28.297199"
-  },
-  {
-    "title": "Flashark Car Upgrade Spring Deals: Up to 55% off + extra 7% off + free shipping",
-    "url": "https://www.dealnews.com/Flashark-Car-Upgrade-Spring-Deals-Up-to-55-off-extra-7-off-free-shipping/21825000.html?iref=rss-c238",
-    "source": "DealNews Home",
-    "discount": 55,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-04-30T08:39:28.734345"
   }
 ]
