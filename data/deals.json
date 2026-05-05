@@ -1,5 +1,17 @@
 [
   {
+    "title": "50% off Domino's Pizza May 6 through May 9",
+    "url": "https://slickdeals.net/f/19490247-50-off-domino-s-pizza-may-6-through-may-9?utm_source=rss&utm_content=ht&utm_medium=RSS2",
+    "source": "Slickdeals Hot",
+    "discount": 50,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-05-05T00:09:38.843037"
+  },
+  {
     "title": "Up to 70% Off Woot Mother's Day Sale",
     "url": "https://slickdeals.net/f/19488390-up-to-70-off-woot-mother-s-day-sale?utm_source=rss&utm_content=ht&utm_medium=RSS2",
     "source": "Slickdeals Hot",
@@ -142,17 +154,5 @@
     "glitch": false,
     "hot": true,
     "found_at": "2026-05-03T07:23:26.685063"
-  },
-  {
-    "title": "Up to 65% Off Clarks Men's Shoe at eBay from $34.99",
-    "url": "https://slickdeals.net/f/19482684-up-to-65-off-clarks-men-s-shoe-at-ebay-from-34-99?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 65,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-05-02T22:25:01.460596"
   }
 ]
