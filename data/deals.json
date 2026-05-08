@@ -1,5 +1,17 @@
 [
   {
+    "title": "HP Laptop Deals: Up to 61% off + free shipping",
+    "url": "https://www.dealnews.com/HP-Laptop-Deals-Up-to-61-off-free-shipping/21827121.html?iref=rss-c39",
+    "source": "DealNews Computers",
+    "discount": 61,
+    "original": null,
+    "sale": null,
+    "category": "electronics",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-05-08T21:56:04.553027"
+  },
+  {
     "title": "PRADA Paradoxe Radical Essence Parfum 50% Off (Various Sizes) from $20.50 + Free Pickup at Macys or Free Shipping on $39+",
     "url": "https://slickdeals.net/f/19502604-prada-paradoxe-radical-essence-parfum-50-off-various-sizes-from-20-50-free-pickup-at-macys-or-free-shipping-on-39?utm_source=rss&utm_content=ht&utm_medium=RSS2",
     "source": "Slickdeals Hot",
@@ -550,29 +562,5 @@
     "glitch": false,
     "hot": true,
     "found_at": "2026-05-07T02:29:05.759097"
-  },
-  {
-    "title": "Get 50% off Amazon Prime If you are a Student or 18-24 years old for $69 / Year",
-    "url": "https://slickdeals.net/f/19496937-get-50-off-amazon-prime-if-you-are-a-student-or-18-24-years-old-for-69-year?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-05-06T21:38:21.424879"
-  },
-  {
-    "title": "Newegg Trending Deals: Up to 70% off + free shipping",
-    "url": "https://www.dealnews.com/Newegg-Trending-Deals-Up-to-70-off-free-shipping/21826279.html?iref=rss-c142",
-    "source": "DealNews Electronics",
-    "discount": 70,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-05-06T21:38:22.005161"
   }
 ]
