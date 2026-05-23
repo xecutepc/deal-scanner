@@ -1,5 +1,17 @@
 [
   {
+    "title": "Lowe's: 50% Off Select Duracell Coppertop Batteries + Extra $5 off $25 + Free Store Pickup or Free Shipping on $35+",
+    "url": "https://slickdeals.net/f/19553118-lowe-s-50-off-select-duracell-coppertop-batteries-extra-5-off-25-free-store-pickup-or-free-shipping-on-35?utm_source=rss&utm_content=ht&utm_medium=RSS2",
+    "source": "Slickdeals Hot",
+    "discount": 50,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-05-23T23:27:58.237051"
+  },
+  {
     "title": "MYATOTO Magic AI Box Wireless CarPlay & Android Auto Adapter for OEM Wired Systems w/ Netflix, YouTube & TF Card Support (Glossy Black) $39.99 + Free Shipping",
     "url": "https://slickdeals.net/f/19547667-myatoto-magic-ai-box-wireless-carplay-android-auto-adapter-for-oem-wired-systems-w-netflix-youtube-tf-card-support-glossy-black-39-99-free-shipping?utm_source=rss&utm_content=ht&utm_medium=RSS2",
     "source": "Slickdeals Hot",
@@ -370,41 +382,5 @@
     "glitch": false,
     "hot": true,
     "found_at": "2026-05-22T03:55:02.972407"
-  },
-  {
-    "title": "Grubhub+ Members: 50% off 5 orders of $15+ (YMMV)",
-    "url": "https://slickdeals.net/f/19548099-grubhub-members-50-off-5-orders-of-15-ymmv?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-05-21T22:48:00.891757"
-  },
-  {
-    "title": "Apple iPhone Memorial Day Deals at Best Buy: Up to $240 off + free shipping",
-    "url": "https://www.dealnews.com/Apple-iPhone-Memorial-Day-Deals-at-Best-Buy-Up-to-240-off-free-shipping/21834716.html?iref=rss-c142",
-    "source": "DealNews Electronics",
-    "discount": 65,
-    "original": null,
-    "sale": null,
-    "category": "electronics",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-05-21T22:48:01.532602"
-  },
-  {
-    "title": "Apple iPad Memorial Day Deals at Best Buy: Up to $400 off + free shipping",
-    "url": "https://www.dealnews.com/Apple-iPad-Memorial-Day-Deals-at-Best-Buy-Up-to-400-off-free-shipping/21834711.html?iref=rss-c39",
-    "source": "DealNews Computers",
-    "discount": 81,
-    "original": null,
-    "sale": null,
-    "category": "electronics",
-    "glitch": false,
-    "hot": false,
-    "found_at": "2026-05-21T22:48:02.121565"
   }
 ]
