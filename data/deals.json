@@ -1,5 +1,17 @@
 [
   {
+    "title": "Domino's Pizza Offer: Any Domino's Menu Price Pizzas 50% Off (Valid thru 6/7)",
+    "url": "https://slickdeals.net/f/19582146-50-off-dominos-pizza-june-1-7?utm_source=rss&utm_content=fp&utm_medium=RSS2",
+    "source": "Slickdeals",
+    "discount": 50,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-06-01T16:34:23.957699"
+  },
+  {
     "title": "New Beginnings PCDD/Steam Bundle: Metro 2033 Redux, Tomb Raider: GOTY $4.15 & More",
     "url": "https://slickdeals.net/f/19578450-new-beginnings-pcdd-steam-bundle-metro-2033-redux-tomb-raider-goty-4-15-more?utm_source=rss&utm_content=fp&utm_medium=RSS2",
     "source": "Slickdeals",
@@ -262,65 +274,5 @@
     "glitch": false,
     "hot": false,
     "found_at": "2026-05-30T16:57:11.640475"
-  },
-  {
-    "title": "Best Buy Memorial Day Appliance Sale + free shipping",
-    "url": "https://www.dealnews.com/Best-Buy-Memorial-Day-Appliance-Sale-free-shipping/21836548.html?iref=rss-c304",
-    "source": "DealNews Sports",
-    "discount": 55,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-05-30T14:26:04.872134"
-  },
-  {
-    "title": "eBay Refurbished Cell Phones & Accessories Sale + free shipping",
-    "url": "https://www.dealnews.com/eBay-Refurbished-Cell-Phones-Accessories-Sale-free-shipping/21836539.html?iref=rss-c142",
-    "source": "DealNews Electronics",
-    "discount": 60,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-05-30T12:45:06.817711"
-  },
-  {
-    "title": "Walmart Tech Clearance Sale + free shipping w/ $35",
-    "url": "https://www.dealnews.com/Walmart-Tech-Clearance-Sale-free-shipping-w-35/21836525.html?iref=rss-c142",
-    "source": "DealNews Electronics",
-    "discount": 68,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-05-30T11:16:50.129144"
-  },
-  {
-    "title": "Open-Box TV Deals at Best Buy + free shipping",
-    "url": "https://www.dealnews.com/Open-Box-TV-Deals-at-Best-Buy-free-shipping/21836519.html?iref=rss-c142",
-    "source": "DealNews Electronics",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "flipping",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-05-30T11:16:50.129190"
-  },
-  {
-    "title": "Best Buy Outlet Clearance + free shipping",
-    "url": "https://www.dealnews.com/Best-Buy-Outlet-Clearance-free-shipping/21836518.html?iref=rss-c142",
-    "source": "DealNews Electronics",
-    "discount": 95,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": false,
-    "found_at": "2026-05-30T11:16:50.129228"
   }
 ]
