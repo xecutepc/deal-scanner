@@ -1,5 +1,29 @@
 [
   {
+    "title": "$4.99: Resident Evil 5 Gold Edition @ Steam",
+    "url": "https://slickdeals.net/f/19600512-4-99-resident-evil-5-gold-edition-steam?utm_source=rss&utm_content=ht&utm_medium=RSS2",
+    "source": "Slickdeals Hot",
+    "discount": 75,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-06-07T09:44:33.951465"
+  },
+  {
+    "title": "Early Prime Day Automotive Deals at Amazon: Up to 50% off + free shipping w/ Prime",
+    "url": "https://www.dealnews.com/Early-Prime-Day-Automotive-Deals-at-Amazon-Up-to-50-off-free-shipping-w-Prime/21838770.html?iref=rss-c238",
+    "source": "DealNews Home",
+    "discount": 50,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-06-07T09:44:35.968553"
+  },
+  {
     "title": "Stbands LED Night Light Galaxy Projector Astronaut $10",
     "url": "https://slickdeals.net/f/19600809-stbands-led-night-light-galaxy-projector-astronaut-blue-9-99-free-shipping-w-prime-or-on-35?utm_source=rss&utm_content=fp&utm_medium=RSS2",
     "source": "Slickdeals",
@@ -514,53 +538,5 @@
     "glitch": false,
     "hot": false,
     "found_at": "2026-06-05T11:58:33.215398"
-  },
-  {
-    "title": "Prime Members: 13-Pc Kikcoin Sourdough Starter Kit w/ Proofing Baskets & Accessories $13.50 + Free S&H",
-    "url": "https://slickdeals.net/f/19594497-prime-members-13-pc-kikcoin-sourdough-starter-kit-w-round-oval-banneton-proofing-baskets-13-49-free-shipping-w-prime-or-on-35?utm_source=rss&utm_content=fp&utm_medium=RSS2",
-    "source": "Slickdeals",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-06-05T08:40:49.089394"
-  },
-  {
-    "title": "Under Armour Men's Polo Playoff Core Stripe $21.19 + Free Shipping on $50+",
-    "url": "https://slickdeals.net/f/19592091-under-armour-men-s-polo-playoff-core-stripe-21-19-free-shipping-on-50?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 60,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-06-05T08:40:50.192914"
-  },
-  {
-    "title": "Sonos Speakers Sale at Woot: Up to 65% off + free shipping w/ Prime",
-    "url": "https://www.dealnews.com/Sonos-Speakers-Sale-at-Woot-Up-to-65-off-free-shipping-w-Prime/21838289.html?iref=rss-c142",
-    "source": "DealNews Electronics",
-    "discount": 65,
-    "original": null,
-    "sale": null,
-    "category": "electronics",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-06-05T08:40:50.692346"
-  },
-  {
-    "title": "Woot Vacuum, Mop & Sweep Sale: Up to 85% off + free shipping w/ Prime",
-    "url": "https://www.dealnews.com/Woot-Vacuum-Mop-Sweep-Sale-Up-to-85-off-free-shipping-w-Prime/21838288.html?iref=rss-c304",
-    "source": "DealNews Sports",
-    "discount": 85,
-    "original": null,
-    "sale": null,
-    "category": "flipping",
-    "glitch": false,
-    "hot": false,
-    "found_at": "2026-06-05T08:40:52.191245"
   }
 ]
