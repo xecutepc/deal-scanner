@@ -1,5 +1,41 @@
 [
   {
+    "title": "Best Buy Outlet Clearance: Up to 95% off + free shipping",
+    "url": "https://www.dealnews.com/Best-Buy-Outlet-Clearance-Up-to-95-off-free-shipping/21840470.html?iref=rss-c142",
+    "source": "DealNews Electronics",
+    "discount": 95,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": false,
+    "found_at": "2026-06-13T17:51:46.403329"
+  },
+  {
+    "title": "Open-box Cameras, Camcorders & Drone Deals at Best Buy: Up to 50% off + free shipping",
+    "url": "https://www.dealnews.com/Open-box-Cameras-Camcorders-Drone-Deals-at-Best-Buy-Up-to-50-off-free-shipping/21840467.html?iref=rss-c142",
+    "source": "DealNews Electronics",
+    "discount": 50,
+    "original": null,
+    "sale": null,
+    "category": "flipping",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-06-13T17:51:46.403370"
+  },
+  {
+    "title": "Amazon Early Prime Day Heating & Cooling Deals: Up to 70% off + free shipping w/ Prime",
+    "url": "https://www.dealnews.com/Amazon-Early-Prime-Day-Heating-Cooling-Deals-Up-to-70-off-free-shipping-w-Prime/21840479.html?iref=rss-c304",
+    "source": "DealNews Sports",
+    "discount": 70,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-06-13T17:51:48.255025"
+  },
+  {
     "title": "Newegg Laptop Clearance at eBay: Up to 55% off + free shipping",
     "url": "https://www.dealnews.com/Newegg-Laptop-Clearance-at-eBay-Up-to-55-off-free-shipping/21840454.html?iref=rss-c39",
     "source": "DealNews Computers",
@@ -562,29 +598,5 @@
     "glitch": false,
     "hot": true,
     "found_at": "2026-06-11T19:31:37.201463"
-  },
-  {
-    "title": "Barnes & Noble: Select Lionsgate Studio Films (4K UHD / Blu-ray / DVD) 50% Off + Free S&H on $60+",
-    "url": "https://slickdeals.net/f/19617192-barnes-noble-50-off-all-lionsgate-films?utm_source=rss&utm_content=fp&utm_medium=RSS2",
-    "source": "Slickdeals",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-06-11T16:34:55.462400"
-  },
-  {
-    "title": "26L GOLF SUPAGS 15.6\" Laptop Backpack (Apricot) $14.99 + Free Shipping w/ Prime or on $35+",
-    "url": "https://slickdeals.net/f/19606860-26l-golf-supags-15-6-laptop-backpack-apricot-14-99-free-shipping-w-prime-or-on-35?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "electronics",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-06-11T16:34:56.234649"
   }
 ]
