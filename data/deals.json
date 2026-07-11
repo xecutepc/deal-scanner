@@ -1,5 +1,17 @@
 [
   {
+    "title": "Firehouse Subs: Orders Placed after 8pm, Receive Extra 50% Off (Through 7/31/26)",
+    "url": "https://slickdeals.net/f/19743591-firehouse-subs-50-off-everything-after-8-pm-thurs-sat-for-rewards-members-through-july-31-2026?utm_source=rss&utm_content=fp&utm_medium=RSS2",
+    "source": "Slickdeals",
+    "discount": 50,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-07-11T17:51:17.615378"
+  },
+  {
     "title": "Woot Open-Box Sale: Up to 84% off + free shipping w/ Prime",
     "url": "https://www.dealnews.com/Woot-Open-Box-Sale-Up-to-84-off-free-shipping-w-Prime/21893568.html?iref=rss-c142",
     "source": "DealNews Electronics",
@@ -730,41 +742,5 @@
     "glitch": false,
     "hot": true,
     "found_at": "2026-07-09T18:52:37.069512"
-  },
-  {
-    "title": "Bose Outlet Deals at eBay: Up to 50% off + free shipping",
-    "url": "https://www.dealnews.com/Bose-Outlet-Deals-at-eBay-Up-to-50-off-free-shipping/21889953.html?iref=rss-c142",
-    "source": "DealNews Electronics",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-07-09T16:59:45.025699"
-  },
-  {
-    "title": "Samsung Outlet Deals at eBay: Up to 50% off + free shipping",
-    "url": "https://www.dealnews.com/Samsung-Outlet-Deals-at-eBay-Up-to-50-off-free-shipping/21889949.html?iref=rss-c142",
-    "source": "DealNews Electronics",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "electronics",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-07-09T16:59:45.025823"
-  },
-  {
-    "title": "Automotive Deals at Amazon: Up to 70% off + free shipping w/ Prime",
-    "url": "https://www.dealnews.com/Automotive-Deals-at-Amazon-Up-to-70-off-free-shipping-w-Prime/21889968.html?iref=rss-c238",
-    "source": "DealNews Home",
-    "discount": 70,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-07-09T16:59:45.607260"
   }
 ]
