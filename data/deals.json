@@ -1,5 +1,17 @@
 [
   {
+    "title": "Woot Really Random Deals Clearance: Up to 80% off + free shipping w/ Prime",
+    "url": "https://www.dealnews.com/Woot-Really-Random-Deals-Clearance-Up-to-80-off-free-shipping-w-Prime/21905389.html?iref=rss-c142",
+    "source": "DealNews Electronics",
+    "discount": 80,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": false,
+    "found_at": "2026-07-16T14:00:18.096488"
+  },
+  {
     "title": "2-Pack Aegend Kids' Anti-Fog Swim Goggles (Aqua & Bright Rose) $6",
     "url": "https://slickdeals.net/f/19766391-2-pack-aegend-kids-anti-fog-swim-goggles-aqua-bright-rose-5-98-2-99-each-free-shipping-w-prime-or-on-35?utm_source=rss&utm_content=fp&utm_medium=RSS2",
     "source": "Slickdeals",
@@ -934,53 +946,5 @@
     "glitch": false,
     "hot": true,
     "found_at": "2026-07-14T14:22:13.409174"
-  },
-  {
-    "title": "7-Qt Overmont Enameled Cast Iron Dutch Oven w/ Lid + Potholder (Sapphire Blue) $40 & More + Free S&H",
-    "url": "https://slickdeals.net/f/19756299-7-qt-overmont-enameled-cast-iron-dutch-oven-pot-w-lid-39-99-free-shipping?utm_source=rss&utm_content=fp&utm_medium=RSS2",
-    "source": "Slickdeals",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "flipping",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-07-14T12:06:46.814155"
-  },
-  {
-    "title": "$4.49: Rise of the Tomb Raider, Raider: 20 Year Celebration @ Steam",
-    "url": "https://slickdeals.net/f/19752384-4-49-rise-of-the-tomb-raider-raider-20-year-celebration-steam?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 85,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": false,
-    "found_at": "2026-07-14T12:06:48.953033"
-  },
-  {
-    "title": "Jackery Summer Sale: Up to 50% off + free shipping",
-    "url": "https://www.dealnews.com/Jackery-Summer-Sale-Up-to-50-off-free-shipping/21901935.html?iref=rss-c142",
-    "source": "DealNews Electronics",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-07-14T12:06:49.460347"
-  },
-  {
-    "title": "JBL Outlet Deals at eBay: Up to 50% off + free shipping",
-    "url": "https://www.dealnews.com/JBL-Outlet-Deals-at-eBay-Up-to-50-off-free-shipping/21901921.html?iref=rss-c142",
-    "source": "DealNews Electronics",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-07-14T12:06:49.460399"
   }
 ]
