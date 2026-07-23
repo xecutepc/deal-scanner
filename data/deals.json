@@ -1,6 +1,54 @@
 [
   {
     "title": "Green Hell: Anniversary Edition (PCDD/Steam) $2.80",
+    "url": "https://slickdeals.net/f/19771272-green-hell-anniversary-edition-pcdd-steam-2-80?utm_source=rss&utm_content=fp&utm_medium=RSS2",
+    "source": "Slickdeals",
+    "discount": 90,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": false,
+    "found_at": "2026-07-23T11:55:36.919015"
+  },
+  {
+    "title": "Handkerchief Hem Midi Dress $9.97",
+    "url": "https://slickdeals.net/f/19774365-handkerchief-hem-midi-dress-9-97?utm_source=rss&utm_content=ht&utm_medium=RSS2",
+    "source": "Slickdeals Hot",
+    "discount": 80,
+    "original": null,
+    "sale": null,
+    "category": "clothing",
+    "glitch": false,
+    "hot": false,
+    "found_at": "2026-07-23T11:55:37.704674"
+  },
+  {
+    "title": "Granicell CR123A 3V Lithium Battery 12-Pack for $9 + free shipping w/ Prime",
+    "url": "https://www.dealnews.com/products/Granicell/Granicell-CR123-A-3-V-Lithium-Battery-12-Pack/511120.html?iref=rss-c142",
+    "source": "DealNews Electronics",
+    "discount": 50,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-07-23T11:55:38.553263"
+  },
+  {
+    "title": "Jeevony Magnetic Dryer Vent Coupling Kit for $22 + free shipping w/ Prime",
+    "url": "https://www.dealnews.com/Jeevony-Magnetic-Dryer-Vent-Coupling-Kit-for-22-free-shipping-w-Prime/21923104.html?iref=rss-c304",
+    "source": "DealNews Sports",
+    "discount": 50,
+    "original": null,
+    "sale": null,
+    "category": "flipping",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-07-23T11:55:41.242744"
+  },
+  {
+    "title": "Green Hell: Anniversary Edition (PCDD/Steam) $2.80",
     "url": "https://slickdeals.net/f/19771272-2-79-green-hell-anniversary-edition-steam?utm_source=rss&utm_content=fp&utm_medium=RSS2",
     "source": "Slickdeals",
     "discount": 90,
@@ -670,53 +718,5 @@
     "glitch": false,
     "hot": true,
     "found_at": "2026-07-21T12:20:58.387778"
-  },
-  {
-    "title": "$14.99: Alan Wake 2 @ Epic Games",
-    "url": "https://slickdeals.net/f/19775673-14-99-alan-wake-2-epic-games?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 70,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-07-21T10:36:51.804992"
-  },
-  {
-    "title": "Olay Advanced Moisture Renewal Blend Body Wash $3.97",
-    "url": "https://slickdeals.net/f/19773816-olay-advanced-moisture-renewal-blend-body-wash-3-97?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 77,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-07-21T10:36:51.805450"
-  },
-  {
-    "title": "Home Audio & Headphones Sale at Woot: Up to 75% off + free shipping w/ Prime",
-    "url": "https://www.dealnews.com/Home-Audio-Headphones-Sale-at-Woot-Up-to-75-off-free-shipping-w-Prime/21917776.html?iref=rss-c142",
-    "source": "DealNews Electronics",
-    "discount": 75,
-    "original": null,
-    "sale": null,
-    "category": "electronics",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-07-21T10:36:52.619056"
-  },
-  {
-    "title": "Best of Tech Sale at Woot: Up to 78% off + free shipping w/ Prime",
-    "url": "https://www.dealnews.com/Best-of-Tech-Sale-at-Woot-Up-to-78-off-free-shipping-w-Prime/21917775.html?iref=rss-c142",
-    "source": "DealNews Electronics",
-    "discount": 78,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-07-21T10:36:52.619105"
   }
 ]
