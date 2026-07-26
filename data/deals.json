@@ -1,5 +1,17 @@
 [
   {
+    "title": "Fanatics Sale: Sports Apparel & Accessories Up to 70% Off + Free S&H on $39+ via App",
+    "url": "https://slickdeals.net/f/19809915-fanatics-70-off-3-99?utm_source=rss&utm_content=fp&utm_medium=RSS2",
+    "source": "Slickdeals",
+    "discount": 70,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-07-26T19:45:05.196274"
+  },
+  {
     "title": "Fanatics 70% off $3.99",
     "url": "https://slickdeals.net/f/19809915-fanatics-70-off-3-99?utm_source=rss&utm_content=ht&utm_medium=RSS2",
     "source": "Slickdeals Hot",
@@ -430,41 +442,5 @@
     "glitch": false,
     "hot": true,
     "found_at": "2026-07-24T20:16:32.936122"
-  },
-  {
-    "title": "$19.99: Resident Evil 7 Gold Edition & Village Gold Edition @ Steam (RESIDENT EVIL 7 $7.99)",
-    "url": "https://slickdeals.net/f/19797087-19-99-resident-evil-7-gold-edition-village-gold-edition-steam-resident-evil-7-7-99?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 75,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-07-24T18:55:24.222776"
-  },
-  {
-    "title": "26-Oz ENCOOL Insulated Stainless Steel Water Bottle w/ Straw (Trippy Skulls) $4.99 + Free Shipping w/ Prime or on $35+",
-    "url": "https://slickdeals.net/f/19799817-26-oz-encool-insulated-stainless-steel-water-bottle-w-straw-trippy-skulls-4-99-free-shipping-w-prime-or-on-35?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-07-24T18:55:24.223289"
-  },
-  {
-    "title": "$5.99: Shadow of the Tomb Raider: Definitive Edition @ Epic Games",
-    "url": "https://slickdeals.net/f/19793193-5-99-shadow-of-the-tomb-raider-definitive-edition-epic-games?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 85,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": false,
-    "found_at": "2026-07-24T18:55:24.223423"
   }
 ]
