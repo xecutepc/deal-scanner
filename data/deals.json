@@ -1,5 +1,41 @@
 [
   {
+    "title": "Lacoste Semi-Annual Sale: Select Apparel, Shoes & Accessories Up to 50% Off + Free S&H",
+    "url": "https://slickdeals.net/f/19791087-lacoste-semi-annual-sale-select-apparel-shoes-accessories-up-to-50-off-free-s-h?utm_source=rss&utm_content=fp&utm_medium=RSS2",
+    "source": "Slickdeals",
+    "discount": 50,
+    "original": null,
+    "sale": null,
+    "category": "clothing",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-07-28T05:28:15.408684"
+  },
+  {
+    "title": "Gap Factory: Additional Savings on Clearance Items Extra 60% Off + Free S&H",
+    "url": "https://slickdeals.net/f/19791753-up-to-60-off-extra-60-off-gap-factory-clearance-sale?utm_source=rss&utm_content=fp&utm_medium=RSS2",
+    "source": "Slickdeals",
+    "discount": 60,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-07-28T05:28:15.408897"
+  },
+  {
+    "title": "Extra 65% Off Lands' End Clothing Sale",
+    "url": "https://slickdeals.net/f/19798758-extra-65-off-lands-end-clothing-sale?utm_source=rss&utm_content=ht&utm_medium=RSS2",
+    "source": "Slickdeals Hot",
+    "discount": 65,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-07-28T05:28:16.101464"
+  },
+  {
     "title": "Monoprice Monolith M2100X 2x90 W/Ch Home Theater Power Amplifier $200 + Free S&H",
     "url": "https://slickdeals.net/f/19814787-monolith-2x90wpc-2x135-4-amp-m2100x-199?utm_source=rss&utm_content=fp&utm_medium=RSS2",
     "source": "Slickdeals",
@@ -538,29 +574,5 @@
     "glitch": false,
     "hot": true,
     "found_at": "2026-07-26T05:44:18.390839"
-  },
-  {
-    "title": "Scarlet Darkness Women's Floral Corset Midi Dress (Various) from $13.45",
-    "url": "https://slickdeals.net/f/19800192-scarlet-darkness-women-s-floral-corset-midi-dress-w-pockets-front-slit-various-14-84-free-shipping-w-prime-or-on-35?utm_source=rss&utm_content=fp&utm_medium=RSS2",
-    "source": "Slickdeals",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "clothing",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-07-26T02:23:28.698045"
-  },
-  {
-    "title": "The Criterion Collection Films (4K UHD, Blu-ray, or DVD) 50% Off + Free Pickup",
-    "url": "https://slickdeals.net/f/19806480-the-criterion-collection-4k-uhd-blu-ray-and-dvd-editions-50-off?utm_source=rss&utm_content=fp&utm_medium=RSS2",
-    "source": "Slickdeals",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-07-26T02:23:28.698187"
   }
 ]
