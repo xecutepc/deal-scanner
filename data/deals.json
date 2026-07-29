@@ -1,5 +1,17 @@
 [
   {
+    "title": "Apple MacBooks, iPads & more at Woot: Up to 75% off + extra 10% off + free shipping w/ Prime",
+    "url": "https://www.dealnews.com/Apple-Mac-Books-iPads-more-at-Woot-Up-to-75-off-extra-10-off-free-shipping-w-Prime/21944198.html?iref=rss-c39",
+    "source": "DealNews Computers",
+    "discount": 75,
+    "original": null,
+    "sale": null,
+    "category": "electronics",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-07-29T08:31:04.211502"
+  },
+  {
     "title": "5-Pack JORHIG Girls Athletic Dry-Fit T-Shirts Tops (Various, Size: 9Y-16Y) $9.99 + Free Shipping w/ Prime or on $35+",
     "url": "https://slickdeals.net/f/19808361-5-pack-jorhig-girls-athletic-dry-fit-t-shirts-tops-various-size-9y-16y-9-99-free-shipping-w-prime-or-on-35?utm_source=rss&utm_content=ht&utm_medium=RSS2",
     "source": "Slickdeals Hot",
@@ -658,53 +670,5 @@
     "glitch": false,
     "hot": true,
     "found_at": "2026-07-27T10:24:55.528961"
-  },
-  {
-    "title": "MIALEXO 3-In-1 Mini Handheld Fan w/ Cooling Plate (Dark Grey or Silver Grey) $10",
-    "url": "https://slickdeals.net/f/19811523-mialexo-3-in-1-mini-handheld-fan-w-cooling-plate-dark-grey-or-silver-grey-9-99-free-shipping-w-prime-or-on-35?utm_source=rss&utm_content=fp&utm_medium=RSS2",
-    "source": "Slickdeals",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-07-27T06:23:33.819258"
-  },
-  {
-    "title": "Extra 70% off on Toypalooza! at Woot!",
-    "url": "https://slickdeals.net/f/19789404-extra-70-off-on-toypalooza-at-woot?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 70,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-07-27T06:23:34.425003"
-  },
-  {
-    "title": "2'x8' Yamaziot Non-Slip Washable Hallway Runner Rug $12.99 + Free Shipping w/ Prime or on $35+",
-    "url": "https://slickdeals.net/f/19805169-2-x8-yamaziot-non-slip-washable-hallway-runner-rug-12-99-free-shipping-w-prime-or-on-35?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-07-27T06:23:34.425321"
-  },
-  {
-    "title": "Keeper - The #1-Rated Password Manager: 50% off + digital download",
-    "url": "https://www.dealnews.com/Keeper-The-1-Rated-Password-Manager-50-off-digital-download/21917839.html?iref=rss-c39",
-    "source": "DealNews Computers",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-07-27T06:23:35.380654"
   }
 ]
