@@ -1,5 +1,17 @@
 [
   {
+    "title": "Staples Laptop Deals: Up to 60% off + free shipping",
+    "url": "https://www.dealnews.com/Staples-Laptop-Deals-Up-to-60-off-free-shipping/22059189.html?iref=rss-c39",
+    "source": "DealNews Computers",
+    "discount": 60,
+    "original": null,
+    "sale": null,
+    "category": "electronics",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-08-19T19:47:44.682423"
+  },
+  {
     "title": "60\" x 32\" Everyfun Rectangle Platform Tree Swing w/ Adjustable Straps (Purple) $40 + Free S&H",
     "url": "https://slickdeals.net/f/19893573-60-x-32-everyfun-rectangle-platform-tree-swing-w-adjustable-straps-purple-39-96-free-shipping?utm_source=rss&utm_content=fp&utm_medium=RSS2",
     "source": "Slickdeals",
@@ -1174,29 +1186,5 @@
     "glitch": false,
     "hot": true,
     "found_at": "2026-08-17T20:19:21.374933"
-  },
-  {
-    "title": "Prime: M MAELREG Men's Jacquard Performance Golf Polo Shirts (Various) $10 + Free S&H",
-    "url": "https://slickdeals.net/f/19875816-prime-m-maelreg-men-s-jacquard-performance-golf-polo-shirts-various-10-free-s-h?utm_source=rss&utm_content=fp&utm_medium=RSS2",
-    "source": "Slickdeals",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "clothing",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-08-17T19:22:56.169799"
-  },
-  {
-    "title": "Hobby Lobby in-Store clearance Select items 90% off YMMV",
-    "url": "https://slickdeals.net/f/19883631-hobby-lobby-in-store-clearance-select-items-90-off-ymmv?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 90,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": false,
-    "found_at": "2026-08-17T19:22:56.860753"
   }
 ]
