@@ -1,5 +1,17 @@
 [
   {
+    "title": "50% off Select Amazon Haul items",
+    "url": "https://slickdeals.net/f/19909728-50-off-select-amazon-haul-items?utm_source=rss&utm_content=ht&utm_medium=RSS2",
+    "source": "Slickdeals Hot",
+    "discount": 50,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-08-22T09:49:50.679188"
+  },
+  {
     "title": "Coostar Men\u2019s Hands-Free Casual Slip-On Shoes w/ Arch Support (4 Colors) from $22 + Free S&H",
     "url": "https://slickdeals.net/f/19908006-coostar-men-s-hands-free-casual-slip-on-loafer-shoes-w-arch-support-8-14-4-colors-from-21-99-free-shipping-w-prime-or-on-35?utm_source=rss&utm_content=fp&utm_medium=RSS2",
     "source": "Slickdeals",
@@ -1246,29 +1258,5 @@
     "glitch": false,
     "hot": true,
     "found_at": "2026-08-20T10:00:22.285657"
-  },
-  {
-    "title": "Kate Kasin Women's Ribbed Button-Up Slim Fit Long Sleeve Shirt (Various) $6.49 + Free Shipping w/ Prime or on $35+",
-    "url": "https://slickdeals.net/f/19898637-kate-kasin-women-s-ribbed-button-up-slim-fit-long-sleeve-shirt-various-6-49-free-shipping-w-prime-or-on-35?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "clothing",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-08-20T09:27:41.121897"
-  },
-  {
-    "title": "Best Buy 60th Anniversary Headphones Deals: Up to 60% off + free shipping",
-    "url": "https://www.dealnews.com/Best-Buy-60-th-Anniversary-Headphones-Deals-Up-to-60-off-free-shipping/22064680.html?iref=rss-c142",
-    "source": "DealNews Electronics",
-    "discount": 60,
-    "original": null,
-    "sale": null,
-    "category": "electronics",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-08-20T09:27:41.915756"
   }
 ]
