@@ -1,5 +1,17 @@
 [
   {
+    "title": "$8.99: Marvel's Guardians of the Galaxy",
+    "url": "https://slickdeals.net/f/19895352-8-99-marvel-s-guardians-of-the-galaxy?utm_source=rss&utm_content=ht&utm_medium=RSS2",
+    "source": "Slickdeals Hot",
+    "discount": 85,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": false,
+    "found_at": "2026-08-23T02:26:03.365988"
+  },
+  {
     "title": "Prime Members: 2-Pc vancasso 7.3\" & 5.5\" Porcelain Utensil Holder Set $22.50",
     "url": "https://slickdeals.net/f/19907220-prime-2-pack-vancasso-porcelain-countertop-utensil-holder-set-various-7-3-5-5-22-49-free-shipping?utm_source=rss&utm_content=fp&utm_medium=RSS2",
     "source": "Slickdeals",
@@ -850,41 +862,5 @@
     "glitch": false,
     "hot": true,
     "found_at": "2026-08-21T03:28:38.894233"
-  },
-  {
-    "title": "Berydress Women's V-Neck Short Sleeve Babydoll Mini Sundress (Various) $9.95",
-    "url": "https://slickdeals.net/f/19903923-berydress-women-s-v-neck-short-sleeve-babydoll-mini-sundress-various-9-95-free-shipping-w-prime-or-on-35?utm_source=rss&utm_content=fp&utm_medium=RSS2",
-    "source": "Slickdeals",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "clothing",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-08-21T02:24:15.583742"
-  },
-  {
-    "title": "Seesii Cordless Jigsaw w/ 2x 2.0Ah Batteries, Charger, 9 Blades & Storage Bag $39.99 + Free Shipping",
-    "url": "https://slickdeals.net/f/19903965-seesii-cordless-jigsaw-w-2x-2-0ah-batteries-charger-9-blades-storage-bag-39-99-free-shipping?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-08-21T02:24:16.215491"
-  },
-  {
-    "title": "Quenteen Women's 9\" Athletic High Waisted Bermuda Short $4.99 + Free Shipping w/ Prime or on $35+",
-    "url": "https://slickdeals.net/f/19903224-quenteen-women-s-9-athletic-high-waisted-bermuda-short-4-99-free-shipping-w-prime-or-on-35?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-08-21T02:24:16.215734"
   }
 ]
