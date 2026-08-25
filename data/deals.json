@@ -1,5 +1,41 @@
 [
   {
+    "title": "Best Buy Outlet Deals: Up to 95% off + free shipping",
+    "url": "https://www.dealnews.com/Best-Buy-Outlet-Deals-Up-to-95-off-free-shipping/22093451.html?iref=rss-c142",
+    "source": "DealNews Electronics",
+    "discount": 95,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": false,
+    "found_at": "2026-08-25T11:29:01.428725"
+  },
+  {
+    "title": "Apple Deals at Best Buy: Up to 60% off + free shipping",
+    "url": "https://www.dealnews.com/Apple-Deals-at-Best-Buy-Up-to-60-off-free-shipping/22093437.html?iref=rss-c39",
+    "source": "DealNews Computers",
+    "discount": 60,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-08-25T11:29:02.120258"
+  },
+  {
+    "title": "Best of PC Deals at Woot: Up to 75% off + free shipping w/ Prime",
+    "url": "https://www.dealnews.com/Best-of-PC-Deals-at-Woot-Up-to-75-off-free-shipping-w-Prime/22093418.html?iref=rss-c39",
+    "source": "DealNews Computers",
+    "discount": 75,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-08-25T11:29:02.120369"
+  },
+  {
     "title": "Best Buy TV Deals: Up to 50% off + free shipping",
     "url": "https://www.dealnews.com/Best-Buy-TV-Deals-Up-to-50-off-free-shipping/22093416.html?iref=rss-c142",
     "source": "DealNews Electronics",
