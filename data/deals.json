@@ -1,5 +1,17 @@
 [
   {
+    "title": "50% off Select Amazon Haul items",
+    "url": "https://slickdeals.net/f/19964157-50-off-select-amazon-haul-items?utm_source=rss&utm_content=ht&utm_medium=RSS2",
+    "source": "Slickdeals Hot",
+    "discount": 50,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-09-03T09:23:35.548954"
+  },
+  {
     "title": "SUNGAIT Ultra Lightweight Rectangular UV400 Polarized Sunglasses (3 Colors) from $6.40",
     "url": "https://slickdeals.net/f/19962678-sungait-ultra-lightweight-rectangular-uv400-polarized-sunglasses-3-colors-from-6-39-free-shipping-w-prime-or-on-35?utm_source=rss&utm_content=fp&utm_medium=RSS2",
     "source": "Slickdeals",
@@ -874,53 +886,5 @@
     "glitch": false,
     "hot": true,
     "found_at": "2026-09-01T10:18:09.496483"
-  },
-  {
-    "title": "GRACE KARIN Women's Cable Knit Button-Down Cardigan (Various Colors) from $10",
-    "url": "https://slickdeals.net/f/19950570-grace-karin-women-s-cable-knit-button-down-cardigan-various-colors-from-9-99-free-shipping-w-prime-or-on-35?utm_source=rss&utm_content=fp&utm_medium=RSS2",
-    "source": "Slickdeals",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-09-01T05:24:46.394096"
-  },
-  {
-    "title": "PINSPARK Women's UPF 50+ LS V-Neck Workout Shirt (various) $6 + Free Shipping w/ Prime or on $35+",
-    "url": "https://slickdeals.net/f/19950768-pinspark-women-s-upf-50-ls-v-neck-workout-shirt-various-6-free-shipping-w-prime-or-on-35?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 60,
-    "original": null,
-    "sale": null,
-    "category": "clothing",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-09-01T05:24:46.991327"
-  },
-  {
-    "title": "PINSPARK Women's LS Crew-Neck Pullover Workout Top (various) $4.99 + Free Shipping w/ Prime or on $35+",
-    "url": "https://slickdeals.net/f/19951284-pinspark-women-s-ls-crew-neck-pullover-workout-top-various-4-99-free-shipping-w-prime-or-on-35?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 63,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-09-01T05:24:46.991493"
-  },
-  {
-    "title": "4.91' ODDSPRO Kid's Fishing Pole Starter Kit w/ Tackle Box $13.94 + Free Shipping w/ Prime or on $35+",
-    "url": "https://slickdeals.net/f/19951725-4-91-oddspro-kid-s-fishing-pole-starter-kit-w-tackle-box-13-94-free-shipping-w-prime-or-on-35?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-09-01T05:24:46.991979"
   }
 ]
