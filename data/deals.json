@@ -1,5 +1,113 @@
 [
   {
+    "title": "adidas Week of Deals: Men's, Women's & Kid's Clothes & Shoes Up to 50% Off + Free S&H",
+    "url": "https://slickdeals.net/f/20231427-up-to-50-off-week-of-deals-at-adidas?utm_source=rss&utm_content=fp&utm_medium=RSS2",
+    "source": "Slickdeals",
+    "discount": 50,
+    "original": null,
+    "sale": null,
+    "category": "clothing",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-10-30T20:57:29.056179"
+  },
+  {
+    "title": "42\" Comfort Expression Orthopedic Bolster Dog Bed $21.50 & More + Free S&H",
+    "url": "https://slickdeals.net/f/20223849-42-comfort-expression-orthopedic-bolster-dog-bed-21-50-more-free-s-h?utm_source=rss&utm_content=fp&utm_medium=RSS2",
+    "source": "Slickdeals",
+    "discount": 50,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-10-30T20:57:29.056390"
+  },
+  {
+    "title": "REI Outlet: Select Cold Weather Clothing & Gear Up to 50% Off",
+    "url": "https://slickdeals.net/f/20226498-rei-outlet-up-to-50-off-select-cold-weather-deals-clothing-gear-thru-11-2?utm_source=rss&utm_content=fp&utm_medium=RSS2",
+    "source": "Slickdeals",
+    "discount": 50,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-10-30T20:57:29.056579"
+  },
+  {
+    "title": "Phomemo L85 Portable Bluetooth Thermal Tattoo Stencil Printer w/ 5\" Touchscreen $104.50 + Free S&H",
+    "url": "https://slickdeals.net/f/20129346-phomemo-l85-portable-bluetooth-thermal-tattoo-stencil-printer-w-5-touchscreen-100-transfer-papers-104-49-free-shipping?utm_source=rss&utm_content=fp&utm_medium=RSS2",
+    "source": "Slickdeals",
+    "discount": 50,
+    "original": null,
+    "sale": null,
+    "category": "electronics",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-10-30T20:57:29.056707"
+  },
+  {
+    "title": "32\" x 48\" Vaukki Fall Pumpkin Entryway Doormat $8.49 + Free Shipping w/ Prime or on $35+",
+    "url": "https://slickdeals.net/f/20229336-32-x-48-vaukki-fall-pumpkin-entryway-doormat-8-49-free-shipping-w-prime-or-on-35?utm_source=rss&utm_content=ht&utm_medium=RSS2",
+    "source": "Slickdeals Hot",
+    "discount": 50,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-10-30T20:57:29.551700"
+  },
+  {
+    "title": "Adidas Week of Deals: Save UP TO 50% OFF on bestselling shoes, apparel, and accessories",
+    "url": "https://slickdeals.net/f/20233626-adidas-week-of-deals-save-up-to-50-off-on-bestselling-shoes-apparel-and-accessories?utm_source=rss&utm_content=ht&utm_medium=RSS2",
+    "source": "Slickdeals Hot",
+    "discount": 50,
+    "original": null,
+    "sale": null,
+    "category": "clothing",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-10-30T20:57:29.551936"
+  },
+  {
+    "title": "Best Buy TV & Home Theater DoorBOOster Deals: Up to 66% off + free shipping",
+    "url": "https://www.dealnews.com/Best-Buy-TV-Home-Theater-Door-BOOster-Deals-Up-to-66-off-free-shipping/22327872.html?iref=rss-c142",
+    "source": "DealNews Electronics",
+    "discount": 66,
+    "original": null,
+    "sale": null,
+    "category": "flipping",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-10-30T20:57:29.729867"
+  },
+  {
+    "title": "Best Buy DoorBOOster Top 100 Deals: Up to 77% off + free shipping",
+    "url": "https://www.dealnews.com/Best-Buy-Door-BOOster-Top-100-Deals-Up-to-77-off-free-shipping/22327850.html?iref=rss-c142",
+    "source": "DealNews Electronics",
+    "discount": 77,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-10-30T20:57:29.729917"
+  },
+  {
+    "title": "Computer & Tablet DoorBOOster Deals at Best Buy: Up to 54% off + free shipping",
+    "url": "https://www.dealnews.com/Computer-Tablet-Door-BOOster-Deals-at-Best-Buy-Up-to-54-off-free-shipping/22327890.html?iref=rss-c39",
+    "source": "DealNews Computers",
+    "discount": 54,
+    "original": null,
+    "sale": null,
+    "category": "electronics",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-10-30T20:57:30.068172"
+  },
+  {
     "title": "27.6\" x 59\" NILUOH Non-Slip Quilted Couch Cover for Dogs w/ Soft Flannel (4 Colors) $15",
     "url": "https://slickdeals.net/f/20198556-27-6-x-59-niluoh-non-slip-quilted-couch-cover-for-dogs-w-soft-flannel-4-colors-15?utm_source=rss&utm_content=fp&utm_medium=RSS2",
     "source": "Slickdeals",
@@ -454,29 +562,5 @@
     "glitch": false,
     "hot": true,
     "found_at": "2026-10-29T00:09:39.047969"
-  },
-  {
-    "title": "Up to 60% Off Wayfair Way Day Living Room Seating Clearance",
-    "url": "https://slickdeals.net/f/20212155-up-to-60-off-wayfair-way-day-living-room-seating-clearance?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 60,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-10-28T20:25:39.887604"
-  },
-  {
-    "title": "Best Buy Top Deals: Up to 56% off + free shipping",
-    "url": "https://www.dealnews.com/Best-Buy-Top-Deals-Up-to-56-off-free-shipping/22322056.html?iref=rss-c142",
-    "source": "DealNews Electronics",
-    "discount": 56,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-10-28T20:25:40.103250"
   }
 ]
