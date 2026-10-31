@@ -1,5 +1,29 @@
 [
   {
+    "title": "4-Pc Bedsure Queen Satin Sheet Set $10",
+    "url": "https://slickdeals.net/f/20235903-4-piece-bedsure-queen-satin-sheet-set-9-99-free-shipping-w-prime-or-on-35?utm_source=rss&utm_content=fp&utm_medium=RSS2",
+    "source": "Slickdeals",
+    "discount": 50,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-10-31T20:37:07.255417"
+  },
+  {
+    "title": "Royal Luxe Reversible Down Alternative Comforter $24.50 + Free Pickup",
+    "url": "https://slickdeals.net/f/20232348-royal-luxe-reversible-down-alternative-comforter-24-50-free-pickup?utm_source=rss&utm_content=fp&utm_medium=RSS2",
+    "source": "Slickdeals",
+    "discount": 83,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": false,
+    "found_at": "2026-10-31T20:37:07.255499"
+  },
+  {
     "title": "Best Buy Half-Price (or Better) Deals: At least 50% off everything + free shipping",
     "url": "https://www.dealnews.com/Best-Buy-Half-Price-or-Better-Deals-At-least-50-off-everything-free-shipping/22330567.html?iref=rss-c142",
     "source": "DealNews Electronics",
@@ -34,18 +58,6 @@
     "glitch": false,
     "hot": true,
     "found_at": "2026-10-31T17:28:41.916299"
-  },
-  {
-    "title": "Google Pixel 11 Unlocked Smartphone for $699 + free shipping",
-    "url": "https://www.dealnews.com/Google-Pixel-11-Unlocked-Smartphone-for-699-free-shipping/22330435.html?iref=rss-c142",
-    "source": "DealNews Electronics",
-    "discount": 97,
-    "original": 899.0,
-    "sale": 30.0,
-    "category": "general",
-    "glitch": true,
-    "hot": false,
-    "found_at": "2026-10-31T17:28:41.916783"
   },
   {
     "title": "Grim Fandango Remastered (Switch Digital Download) $3",
@@ -502,53 +514,5 @@
     "glitch": false,
     "hot": true,
     "found_at": "2026-10-29T23:28:10.924131"
-  },
-  {
-    "title": "Wayfair Way Day Living Room Seating Clearance Up to 60% Off",
-    "url": "https://slickdeals.net/f/20212155-up-to-60-off-wayfair-way-day-living-room-seating-clearance?utm_source=rss&utm_content=fp&utm_medium=RSS2",
-    "source": "Slickdeals",
-    "discount": 60,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-10-29T19:07:20.523387"
-  },
-  {
-    "title": "2-Pack 14-Oz KittBabby Self Stirring Rechargeable Coffee Mugs $24.99 + Free Shipping",
-    "url": "https://slickdeals.net/f/20218041-2-pack-14-oz-kittbabby-self-stirring-rechargeable-coffee-mugs-24-99-free-shipping?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-10-29T19:07:21.077938"
-  },
-  {
-    "title": "Sennheiser Black Friday Early Access Sale: Up to 50% off + free shipping",
-    "url": "https://www.dealnews.com/Sennheiser-Black-Friday-Early-Access-Sale-Up-to-50-off-free-shipping/22324982.html?iref=rss-c142",
-    "source": "DealNews Electronics",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-10-29T19:07:21.266195"
-  },
-  {
-    "title": "Temu Early Black Friday Automotive Deals for From $1.69 + free shipping on items shipped from Temu",
-    "url": "https://www.dealnews.com/Temu-Early-Black-Friday-Automotive-Deals-for-From-1-69-free-shipping-on-items-shipped-from-Temu/22324935.html?iref=rss-c238",
-    "source": "DealNews Home",
-    "discount": 60,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-10-29T19:07:21.722299"
   }
 ]
