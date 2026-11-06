@@ -1,5 +1,65 @@
 [
   {
+    "title": "Kohls: 50% off toys",
+    "url": "https://slickdeals.net/f/20265252-kohls-50-off-toys?utm_source=rss&utm_content=ht&utm_medium=RSS2",
+    "source": "Slickdeals Hot",
+    "discount": 50,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-11-06T11:24:17.843753"
+  },
+  {
+    "title": "Sennheiser Premium Headphones Sale at Woot: 35% to 54% off + free shipping w/ Prime",
+    "url": "https://www.dealnews.com/Sennheiser-Premium-Headphones-Sale-at-Woot-35-to-54-off-free-shipping-w-Prime/22355391.html?iref=rss-c142",
+    "source": "DealNews Electronics",
+    "discount": 54,
+    "original": null,
+    "sale": null,
+    "category": "electronics",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-11-06T11:24:17.946331"
+  },
+  {
+    "title": "Woot Software Clearance: Up to 50% off + free shipping w/ Prime",
+    "url": "https://www.dealnews.com/Woot-Software-Clearance-Up-to-50-off-free-shipping-w-Prime/22355404.html?iref=rss-c39",
+    "source": "DealNews Computers",
+    "discount": 50,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-11-06T11:24:17.982865"
+  },
+  {
+    "title": "Woot Heater & Air Care Deals: Up to 68% off + free shipping w/ Prime",
+    "url": "https://www.dealnews.com/Woot-Heater-Air-Care-Deals-Up-to-68-off-free-shipping-w-Prime/22355389.html?iref=rss-c304",
+    "source": "DealNews Sports",
+    "discount": 68,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-11-06T11:24:19.659146"
+  },
+  {
+    "title": "Home Depot Black Friday Laundry Appliance Deals: Up to 53% off + up to an extra $500 off + free shipping w/ $398",
+    "url": "https://www.dealnews.com/Home-Depot-Black-Friday-Laundry-Appliance-Deals-Up-to-53-off-up-to-an-extra-500-off-free-shipping-w-398/22355442.html?iref=rss-c304",
+    "source": "DealNews Sports",
+    "discount": 53,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-11-06T11:24:19.659433"
+  },
+  {
     "title": "AMMZO Instant-Read Digital Magnetic Meat & Food Thermometer $4.99 + Free Shipping w/ Prime or on $35+",
     "url": "https://slickdeals.net/f/20261769-ammzo-instant-read-digital-magnetic-meat-food-thermometer-4-99-free-shipping-w-prime-or-on-35?utm_source=rss&utm_content=ht&utm_medium=RSS2",
     "source": "Slickdeals Hot",
@@ -346,29 +406,5 @@
     "glitch": false,
     "hot": true,
     "found_at": "2026-11-04T15:37:54.754294"
-  },
-  {
-    "title": "Acer 5-In-1-Out HDMI 2.0 4K@60Hz Switch w/ Remote $16.50",
-    "url": "https://slickdeals.net/f/20252751-acer-5-in-1-out-hdmi-2-0-4k-60hz-switch-w-remote-16-50?utm_source=rss&utm_content=fp&utm_medium=RSS2",
-    "source": "Slickdeals",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-11-04T07:10:04.701458"
-  },
-  {
-    "title": "JandCase Vintage-Style Christmas Tree Plug-In Night Lights (various) from $8",
-    "url": "https://slickdeals.net/f/20246583-jandcase-vintage-style-christmas-tree-plug-in-night-lights-w-360-rotatable-plug-various-from-7-99-or-2-for-13-99-7-each-free-shipping-w-prime-or-on-35?utm_source=rss&utm_content=fp&utm_medium=RSS2",
-    "source": "Slickdeals",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-11-04T07:10:04.701517"
   }
 ]
