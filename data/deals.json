@@ -1,5 +1,29 @@
 [
   {
+    "title": "4 Shirts for $24 at Checkout!",
+    "url": "https://slickdeals.net/f/20281179-4-shirts-for-24-at-checkout?utm_source=rss&utm_content=ht&utm_medium=RSS2",
+    "source": "Slickdeals Hot",
+    "discount": 60,
+    "original": null,
+    "sale": null,
+    "category": "clothing",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-11-10T09:09:29.000302"
+  },
+  {
+    "title": "6-Pack EMOMAS Heavy-Duty Moving Bags w/ Handles (27\" x 13.5\" x 15\") $13.49 + Free Shipping w/ Prime or on $35+",
+    "url": "https://slickdeals.net/f/20282445-6-pack-emomas-heavy-duty-moving-bags-w-handles-27-x-13-5-x-15-13-49-free-shipping-w-prime-or-on-35?utm_source=rss&utm_content=ht&utm_medium=RSS2",
+    "source": "Slickdeals Hot",
+    "discount": 50,
+    "original": null,
+    "sale": null,
+    "category": "general",
+    "glitch": false,
+    "hot": true,
+    "found_at": "2026-11-10T09:09:29.000417"
+  },
+  {
     "title": "Prime Members: 623-Pc SOOLIO Orchid Rose Flower Bouquet Building Set from $12.82 & More",
     "url": "https://slickdeals.net/f/20278044-prime-917-piece-soolio-christmas-rose-flower-bouquet-building-set-12-82-free-shipping?utm_source=rss&utm_content=fp&utm_medium=RSS2",
     "source": "Slickdeals",
@@ -262,53 +286,5 @@
     "glitch": false,
     "hot": true,
     "found_at": "2026-11-08T11:07:46.788500"
-  },
-  {
-    "title": "21\" Ziluce 2-in-1 Foldable Pet Stairs Dog Ramp $52.65 + Free S&H",
-    "url": "https://slickdeals.net/f/20271684-2-in-1-ziluce-21-06-foldable-dog-ramp-stairs-converts-to-bedside-table-light-brown-52-64-free-shipping?utm_source=rss&utm_content=fp&utm_medium=RSS2",
-    "source": "Slickdeals",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-11-08T03:58:31.268853"
-  },
-  {
-    "title": "PORTBOR Wireless Bluetooth Speaker, Powerful Stereo Loud Sound, 30H Playtime/IPX5 Waterproof 8 Light Modes $18.99 @Amazon",
-    "url": "https://slickdeals.net/f/20266728-portbor-wireless-bluetooth-speaker-powerful-stereo-loud-sound-30h-playtime-ipx5-waterproof-8-light-modes-18-99-amazon?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 62,
-    "original": null,
-    "sale": null,
-    "category": "electronics",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-11-08T03:58:31.843552"
-  },
-  {
-    "title": "Official Ray-Ban Clearance Sale: Up to 50% Off Select Sunglasses Styles (Wayfarer, Aviator, Clubmaster & More) + Free Shipping $133",
-    "url": "https://slickdeals.net/f/20273427-official-ray-ban-clearance-sale-up-to-50-off-select-sunglasses-styles-wayfarer-aviator-clubmaster-more-free-shipping-133?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "clothing",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-11-08T03:58:31.843600"
-  },
-  {
-    "title": "60-Count Vimerson Health Turmeric Boswellia & Ginger Joint Supplement Capsules $8 ($0.13 Each) w/ S&S + Free Shipping w/ Prime or on $35+",
-    "url": "https://slickdeals.net/f/20269869-60-count-vimerson-health-turmeric-boswellia-ginger-joint-supplement-capsules-8-0-13-each-w-s-s-free-shipping-w-prime-or-on-35?utm_source=rss&utm_content=ht&utm_medium=RSS2",
-    "source": "Slickdeals Hot",
-    "discount": 50,
-    "original": null,
-    "sale": null,
-    "category": "general",
-    "glitch": false,
-    "hot": true,
-    "found_at": "2026-11-08T03:58:31.843812"
   }
 ]
